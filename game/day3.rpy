@@ -1,4 +1,4 @@
-label day1_bedroom_m:
+label day3_bedroom_m:
     #start in bedroom morning
     "uwu"
 
@@ -27,7 +27,7 @@ label day1_bedroom_m:
     pause
     return
 
-label coffee_obj1:
+label coffee_obj3:
     menu:
         "Yes":
             $ point += 1

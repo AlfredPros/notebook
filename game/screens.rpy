@@ -39,13 +39,12 @@ screen poc():
     add "titlescreenbase":
         zoom 0.55 pos(-(x_now/hover_mult), -(y_now/hover_mult))
     
-    if coffee_obj[0] == False:
-        imagebutton at door:
-            pos((142+14)-(x_now/hover_mult), (194+20)-(y_now/hover_mult))
-            idle "titledoor1closed"
-            hover "tdoor1"
-            
-            action SetDict(coffee_obj, 0, True), Hide("poc", transition=Dissolve(0.2))
+    imagebutton at door:
+        pos((142+14)-(x_now/hover_mult), (194+20)-(y_now/hover_mult))
+        idle "titledoor1closed"
+        hover "tdoor1"
+        
+        action SetDict(coffee_obj, day, True), Hide("poc", transition=Dissolve(0.2)), Jump("coffee_obj1")
         
     text "[x_mouse]  [y_mouse]":
         xalign 0.1

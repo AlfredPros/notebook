@@ -2,7 +2,7 @@
 define popo = Character("Mocha")
 
 default coffee_obj = [False, False, False, False, False]  # Per day
-
+default day = 0
 default point = 0
 
 label splashscreen:
@@ -23,9 +23,13 @@ label splashscreen:
 label start:
 
     call day1_bedroom_m
+    $ day = 1
     call day2_bedroom_m
+    $ day = 2
     call day3_bedroom_m
+    $ day = 3
     call day4_bedroom_m
+    $ day = 4
     call day5_bedroom_m
 
     return
