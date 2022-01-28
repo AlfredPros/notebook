@@ -1,6 +1,8 @@
 ﻿define MC = Character("Sussy Baka Amogus")
 define popo = Character("Mocha")
 
+default coffee_obj = [False, False, False, False, False]  # Per day
+
 label splashscreen:
     scene black
     pause 1
@@ -18,6 +20,8 @@ label splashscreen:
 
 label start:
     "uwu"
+    
+    "[coffee_obj[0]], [coffee_obj[1]], [coffee_obj[2]], [coffee_obj[3]], [coffee_obj[4]]"
     
     window hide
     # Init coordinate
