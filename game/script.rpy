@@ -3,6 +3,8 @@ define popo = Character("Mocha")
 
 default coffee_obj = [False, False, False, False, False]  # Per day
 
+default point = 0
+
 label splashscreen:
     scene black
     pause 1
@@ -19,32 +21,11 @@ label splashscreen:
     return
 
 label start:
-    "uwu"
-    
-    "[coffee_obj[0]], [coffee_obj[1]], [coffee_obj[2]], [coffee_obj[3]], [coffee_obj[4]]"
-    
-    window hide
-    # Init coordinate
-    python:
-        pos = renpy.get_mouse_pos()
-        x_now = pos[0]
-        y_now = pos[1]
-    show screen poc with s_dissolve
-    
-    pause
-    
-    window show
-    "ok"
-    window hide
-    
-    python:
-        pos = renpy.get_mouse_pos()
-        x_now = pos[0]
-        y_now = pos[1]
-    show screen poc with s_dissolve
-    
-    pause
-    
-    return
-    
 
+    call day1_bedroom_m
+    call day2_bedroom_m
+    call day3_bedroom_m
+    call day4_bedroom_m
+    call day5_bedroom_m
+
+    return
