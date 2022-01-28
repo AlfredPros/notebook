@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1: expected statement.
-    ﻿
-     ^
+File "game/screens.rpy", line 20: u'zoom' is not a keyword argument or valid child for the imagebutton statement.
+    zoom 0.5 pos(284, 389)
+        ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Fri Jan 28 19:53:06 2022
+Fri Jan 28 20:07:31 2022

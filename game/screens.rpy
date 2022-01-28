@@ -4,6 +4,45 @@
 
 init offset = -1
 
+image tdoor1 = im.MatrixColor("titledoor1closed.png", im.matrix.brightness(0.5))
+
+
+################################################################################
+## Transforms
+################################################################################
+
+transform door:
+    zoom 0.55
+
+
+################################################################################
+## Point and Click
+################################################################################
+
+define hover_mult = 12  # The less, the faster
+
+screen poc():
+    modal True
+    
+    python:
+        pos = renpy.get_mouse_pos()
+        x_mouse = pos[0]
+        y_mouse = pos[1]
+    
+    add "titlescreenbase":
+        zoom 0.55 pos(0-(x_mouse/hover_mult), 0-(y_mouse/hover_mult))
+    
+    imagebutton at door:
+        pos(142+14-(x_mouse/hover_mult), 194+20-(y_mouse/hover_mult))
+        idle "titledoor1closed"
+        hover "tdoor1"
+        
+        action Hide("poc")
+        
+    text "[x_mouse]  [y_mouse]":
+        xalign 0.1
+    
+    timer 0.03 action renpy.restart_interaction repeat True
 
 ################################################################################
 ## Styles

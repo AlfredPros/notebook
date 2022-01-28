@@ -2,7 +2,17 @@
 define popo = Character("Mocha")
 label start:
     "uwu"
+    
+    window hide
+    show screen poc 
+    
+    pause
+    
+    window show
+    "ok"
+    
     return
+    
 label splashscreen:
     scene black
     pause 1
