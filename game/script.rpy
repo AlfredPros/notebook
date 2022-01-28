@@ -35,6 +35,15 @@ label start:
     
     window show
     "ok"
+    window hide
+    
+    python:
+        pos = renpy.get_mouse_pos()
+        x_now = pos[0]
+        y_now = pos[1]
+    show screen poc with s_dissolve
+    
+    pause
     
     return
     
