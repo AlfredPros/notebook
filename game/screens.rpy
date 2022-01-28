@@ -6,6 +6,7 @@ init offset = -1
 
 image tdoor1 = im.MatrixColor("titledoor1closed.png", im.matrix.brightness(0.5))
 
+define s_dissolve = { "screens" : Dissolve(0.2) }
 
 ################################################################################
 ## Transforms
@@ -19,7 +20,7 @@ transform door:
 ## Point and Click
 ################################################################################
 
-define hover_mult = 12  # The less, the faster
+define hover_mult = 10  # The less, the faster
 
 screen poc():
     modal True
@@ -30,14 +31,14 @@ screen poc():
         y_mouse = pos[1]
     
     add "titlescreenbase":
-        zoom 0.55 pos(0-(x_mouse/hover_mult), 0-(y_mouse/hover_mult))
+        zoom 0.55 pos(-(x_mouse/hover_mult), -(y_mouse/hover_mult))
     
     imagebutton at door:
-        pos(142+14-(x_mouse/hover_mult), 194+20-(y_mouse/hover_mult))
+        pos((142+14)-(x_mouse/hover_mult), (194+20)-(y_mouse/hover_mult))
         idle "titledoor1closed"
         hover "tdoor1"
         
-        action Hide("poc")
+        action Hide("poc", transition=Dissolve(0.2))
         
     text "[x_mouse]  [y_mouse]":
         xalign 0.1

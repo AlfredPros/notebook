@@ -1,18 +1,6 @@
 ﻿define MC = Character("Sussy Baka Amogus")
 define popo = Character("Mocha")
-label start:
-    "uwu"
-    
-    window hide
-    show screen poc 
-    
-    pause
-    
-    window show
-    "ok"
-    
-    return
-    
+
 label splashscreen:
     scene black
     pause 1
@@ -27,3 +15,18 @@ label splashscreen:
     hide text with dissolve
     pause 1
     return
+
+label start:
+    "uwu"
+    
+    window hide
+    show screen poc with s_dissolve
+    
+    pause
+    
+    window show
+    "ok"
+    
+    return
+    
+
