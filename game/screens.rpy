@@ -21,6 +21,9 @@ transform door:
 ################################################################################
 
 define hover_mult = 10  # The less, the faster
+define smooth_const = 2  # DON'T CHANGE THIS
+default x_now = 0
+default y_now = 0
 
 screen poc():
     modal True
@@ -29,12 +32,15 @@ screen poc():
         pos = renpy.get_mouse_pos()
         x_mouse = pos[0]
         y_mouse = pos[1]
+        
+        x_now = (x_mouse+x_now)/smooth_const
+        y_now = (y_mouse+y_now)/smooth_const
     
     add "titlescreenbase":
-        zoom 0.55 pos(-(x_mouse/hover_mult), -(y_mouse/hover_mult))
+        zoom 0.55 pos(-(x_now/hover_mult), -(y_now/hover_mult))
     
     imagebutton at door:
-        pos((142+14)-(x_mouse/hover_mult), (194+20)-(y_mouse/hover_mult))
+        pos((142+14)-(x_now/hover_mult), (194+20)-(y_now/hover_mult))
         idle "titledoor1closed"
         hover "tdoor1"
         
@@ -43,7 +49,7 @@ screen poc():
     text "[x_mouse]  [y_mouse]":
         xalign 0.1
     
-    timer 0.03 action renpy.restart_interaction repeat True
+    timer 0.025 action renpy.restart_interaction repeat True  # 1 is ultra smooth, but no button is hoverable
 
 ################################################################################
 ## Styles
