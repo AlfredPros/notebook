@@ -5,6 +5,16 @@
 ## may want to uncomment them when appropriate.
 
 
+## Custom Configs ##############################################################
+
+## Additional Goodies
+define config.enter_yesno_transition = Dissolve(.125)
+define config.exit_yesno_transition = Dissolve(.125)
+
+define config.skip_sounds = True
+default preferences.gl_powersave = False  # True if you're conservative on battery
+
+
 ## Basics ######################################################################
 
 ## A human-readable name of the game. This is used to set the default window
@@ -30,6 +40,7 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+                      For Global Game Jam 2021.
 """)
 
 
@@ -48,7 +59,7 @@ define build.name = "Notebook"
 
 define config.has_sound = True
 define config.has_music = True
-define config.has_voice = True
+define config.has_voice = False
 
 
 ## To allow the user to play a test sound on the sound or voice channel,
@@ -84,12 +95,12 @@ define config.intra_transition = dissolve
 
 ## A transition that is used after a game has been loaded.
 
-define config.after_load_transition = None
+define config.after_load_transition = dissolve
 
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
+define config.end_game_transition = dissolve
 
 
 ## A variable to set the transition used when the game starts does not exist.
@@ -120,7 +131,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 60
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0
@@ -186,8 +197,27 @@ init python:
 
     ## To archive files, classify them as 'archive'.
 
-    # build.classify('game/**.png', 'archive')
-    # build.classify('game/**.jpg', 'archive')
+    build.archive("datas", "all")
+    
+    ## Visual
+    build.classify('game/**.png', 'datas')
+    build.classify('game/**.jpg', 'datas')
+    build.classify('game/**.webm', 'datas')
+
+    ## Audio
+    build.classify('game/**.mp3', 'datas')
+    build.classify('game/**.ogg', 'datas')
+    build.classify('game/**.flac', 'datas')
+    build.classify('game/**.wav', 'datas')
+
+    ## Text
+    build.classify('game/**.ttf', 'datas')
+    build.classify('game/**.otf', 'datas')
+
+    ## Script & Other
+    build.classify("game/**.rpy", "datas")
+    build.classify("game/**.rpyc", "datas")
+    build.classify("game/**.txt", "datas")
 
     ## Files matching documentation patterns are duplicated in a mac app build,
     ## so they appear in both the app and the zip file.

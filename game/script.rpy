@@ -28,6 +28,7 @@ label splashscreen:
     pause 10
     hide text with dissolve
     pause 1
+    
     return
 
 label start:
@@ -36,10 +37,22 @@ label start:
     $ day = 1
     call day2_bedroom_m
     $ day = 2
+    # Decide ending
+    python:
+        if point > 0:
+            goodend = 1
     call day3_bedroom_m
     $ day = 3
     call day4_bedroom_m
     $ day = 4
     call day5_bedroom_m
+
+    return
+    
+label quit:
+    stop music fadeout 1
+    stop sound fadeout 1
+    if not main_menu:
+        scene black with Dissolve(1)
 
     return
