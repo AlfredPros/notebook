@@ -151,7 +151,7 @@ screen office1():
         idle "office/bookshelf.png"
         hover "office/bookshelf_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
     
     # Laptop
     imagebutton at bg_scale:
@@ -159,7 +159,7 @@ screen office1():
         idle "office/laptop.png"
         hover "office/laptop_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
         
     # Pigura
     imagebutton at bg_scale:
@@ -167,7 +167,7 @@ screen office1():
         idle "office/pigura.png"
         hover "office/pigura_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
         
     # Stationery
     imagebutton at bg_scale:
@@ -175,7 +175,7 @@ screen office1():
         idle "office/stationery.png"
         hover "office/stationery_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
         
     # Tissue
     imagebutton at bg_scale:
@@ -183,7 +183,7 @@ screen office1():
         idle "office/tissue.png"
         hover "office/tissue_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
         
     # Tissue Box
     imagebutton at bg_scale:
@@ -191,7 +191,7 @@ screen office1():
         idle "office/tissue_box.png"
         hover "office/tissue_box_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
         
     #text "[x_mouse]  [y_mouse]":
     #    xalign 0.1
