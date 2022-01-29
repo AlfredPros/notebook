@@ -197,6 +197,41 @@ screen office1():
     #    xalign 0.1
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
+    
+screen bedroom1():
+    modal True
+    
+    python:
+        pos = renpy.get_mouse_pos()
+        x_mouse = pos[0]
+        y_mouse = pos[1]
+        
+        x_now = (x_mouse+x_now)/smooth_const
+        y_now = (y_mouse+y_now)/smooth_const
+    
+    add "bedroom/bedroom_bg.png" at bg_scale:
+        pos(-(x_now/hover_mult), -(y_now/hover_mult))
+    
+    # Kaca
+    imagebutton at bg_scale:
+        pos(int(1372*bg_scale_const)-(x_now/hover_mult), int(246*bg_scale_const)-(y_now/hover_mult))  # 1372, 246
+        idle "bedroom/kaca.png"
+        hover "bedroom/kaca_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("bedroom1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+    
+    # Notebook
+    imagebutton at bg_scale:
+        pos(int(1432*bg_scale_const)-(x_now/hover_mult), int(569*bg_scale_const)-(y_now/hover_mult))  # 1432, 569
+        idle "bedroom/notebook.png"
+        hover "bedroom/notebook_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("bedroom1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    #text "[x_mouse]  [y_mouse]":
+    #    xalign 0.1
+    
+    timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
 
 ################################################################################
 ## Styles
