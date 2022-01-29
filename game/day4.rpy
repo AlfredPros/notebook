@@ -1,30 +1,35 @@
 label day4_bedroom_m:
     #start in bedroom morning
     "uwu"
+    menu:
+        "Kitchen":
+            jump kitchen_day4
+        "Office":
+            jump office_day4
+    return
 
-    "[coffee_obj[0]], [coffee_obj[1]], [coffee_obj[2]], [coffee_obj[3]], [coffee_obj[4]]"
-
+label kitchen_day4:
     # Init coordinate ()
     window hide
     python:
         pos = renpy.get_mouse_pos()
         x_now = pos[0]
         y_now = pos[1]
-    show screen poc with s_dissolve
+    show screen kitchen1 with s_dissolve
     pause
-    window show
-    #return to kitchen
 
-    "ok"
+    return
+
+label office_day4:
     window hide
 
     python:
         pos = renpy.get_mouse_pos()
         x_now = pos[0]
         y_now = pos[1]
-    show screen poc with s_dissolve
-
+    show screen office1 with s_dissolve
     pause
+
     return
 
 label plants_obj4:
