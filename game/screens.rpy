@@ -76,7 +76,7 @@ screen kitchen1():
         idle "kitchen/book.png"
         hover "kitchen/book_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
     
     # Boquet
     imagebutton at bg_scale:
@@ -84,7 +84,7 @@ screen kitchen1():
         idle "kitchen/boquet.png"
         hover "kitchen/boquet_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
     # Coffee Machine
     imagebutton at bg_scale:
@@ -92,7 +92,7 @@ screen kitchen1():
         idle "kitchen/coffee_machine.png"
         hover "kitchen/coffee_machine_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
     # Dog Feeder - Empty
     imagebutton at bg_scale:
@@ -100,7 +100,7 @@ screen kitchen1():
         idle "kitchen/dog_feeder_empty.png"
         hover "kitchen/dog_feeder_empty_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
     # Knife
     imagebutton at bg_scale:
@@ -108,7 +108,7 @@ screen kitchen1():
         idle "kitchen/knife.png"
         hover "kitchen/knife_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
     # Plant
     imagebutton at bg_scale:
@@ -116,7 +116,7 @@ screen kitchen1():
         idle "kitchen/plant.png"
         hover "kitchen/plant_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
     # Sink
     imagebutton at bg_scale:
@@ -124,10 +124,17 @@ screen kitchen1():
         idle "kitchen/sink.png"
         hover "kitchen/sink_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
-    #text "[x_mouse]  [y_mouse]":
-    #    xalign 0.1
+    vbox:
+        align (0.95, 0.05)
+        spacing 20
+        
+        textbutton "Go to Bedroom":
+            action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
+            
+        textbutton "Go to Office":
+            action Hide("kitchen1", transition=Dissolve(0.25)), Show("office1")
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
     
@@ -151,7 +158,7 @@ screen office1():
         idle "office/bookshelf.png"
         hover "office/bookshelf_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
     
     # Laptop
     imagebutton at bg_scale:
@@ -159,7 +166,7 @@ screen office1():
         idle "office/laptop.png"
         hover "office/laptop_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
     # Pigura
     imagebutton at bg_scale:
@@ -167,7 +174,7 @@ screen office1():
         idle "office/pigura.png"
         hover "office/pigura_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
     # Stationery
     imagebutton at bg_scale:
@@ -175,7 +182,7 @@ screen office1():
         idle "office/stationery.png"
         hover "office/stationery_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
     # Tissue
     imagebutton at bg_scale:
@@ -183,7 +190,7 @@ screen office1():
         idle "office/tissue.png"
         hover "office/tissue_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
     # Tissue Box
     imagebutton at bg_scale:
@@ -191,10 +198,17 @@ screen office1():
         idle "office/tissue_box.png"
         hover "office/tissue_box_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
         
-    #text "[x_mouse]  [y_mouse]":
-    #    xalign 0.1
+    vbox:
+        align (0.95, 0.05)
+        spacing 20
+        
+        textbutton "Go to Kitchen":
+            action Hide("office1", transition=Dissolve(0.25)), Show("kitchen1")
+            
+        textbutton "Go to Bedroom":
+            action Hide("office1", transition=Dissolve(0.25)), Show("bedroom1")
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
     
@@ -218,7 +232,7 @@ screen bedroom1():
         idle "bedroom/kaca.png"
         hover "bedroom/kaca_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("bedroom1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("bedroom1", transition=Dissolve(0.25)), Jump("coffee_obj1")
     
     # Notebook
     imagebutton at bg_scale:
@@ -226,10 +240,17 @@ screen bedroom1():
         idle "bedroom/notebook.png"
         hover "bedroom/notebook_outline.png"
         
-        action SetDict(coffee_obj, day, True), Hide("bedroom1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Hide("bedroom1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+    
+    vbox:
+        align (0.95, 0.05)
+        spacing 20
         
-    #text "[x_mouse]  [y_mouse]":
-    #    xalign 0.1
+        textbutton "Go to Kitchen":
+            action Hide("bedroom1", transition=Dissolve(0.25)), Show("kitchen1")
+            
+        textbutton "Go to Office":
+            action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
 
