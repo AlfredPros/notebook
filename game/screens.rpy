@@ -7,6 +7,7 @@ init offset = -1
 image tdoor1 = im.MatrixColor("titledoor1closed.png", im.matrix.brightness(0.5))
 
 define s_dissolve = { "screens" : Dissolve(0.2) }
+define bg_scale_const = 0.71
 
 ################################################################################
 ## Transforms
@@ -14,6 +15,9 @@ define s_dissolve = { "screens" : Dissolve(0.2) }
 
 transform door:
     zoom 0.55
+    
+transform bg_scale:
+    zoom bg_scale_const
 
 
 ################################################################################
@@ -50,6 +54,81 @@ screen poc():
         xalign 0.1
     
     timer 0.025 action renpy.restart_interaction repeat True  # 1 is ultra smooth, but no button is hoverable
+    
+screen kitchen1():
+    modal True
+    
+    python:
+        pos = renpy.get_mouse_pos()
+        x_mouse = pos[0]
+        y_mouse = pos[1]
+        
+        x_now = (x_mouse+x_now)/smooth_const
+        y_now = (y_mouse+y_now)/smooth_const
+    
+    add "kitchen/bg_kitchen.png" at bg_scale:
+        pos(-(x_now/hover_mult), -(y_now/hover_mult))
+    
+    # Book
+    imagebutton at bg_scale:
+        pos(int(1705*bg_scale_const)-(x_now/hover_mult), int(197*bg_scale_const)-(y_now/hover_mult))  # 1705, 197
+        idle "kitchen/book.png"
+        hover "kitchen/book_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+    
+    # Boquet
+    imagebutton at bg_scale:
+        pos(int(1124*bg_scale_const)-(x_now/hover_mult), int(436*bg_scale_const)-(y_now/hover_mult))  # 1124, 436
+        idle "kitchen/boquet.png"
+        hover "kitchen/boquet_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    # Coffee Machine
+    imagebutton at bg_scale:
+        pos(int(641*bg_scale_const)-(x_now/hover_mult), int(507*bg_scale_const)-(y_now/hover_mult))  # 641, 507
+        idle "kitchen/coffee_machine.png"
+        hover "kitchen/coffee_machine_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    # Dog Feeder - Empty
+    imagebutton at bg_scale:
+        pos(int(1604*bg_scale_const)-(x_now/hover_mult), int(859*bg_scale_const)-(y_now/hover_mult))  # 1604, 859
+        idle "kitchen/dog_feeder_empty.png"
+        hover "kitchen/dog_feeder_empty_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    # Knife
+    imagebutton at bg_scale:
+        pos(int(1376*bg_scale_const)-(x_now/hover_mult), int(434*bg_scale_const)-(y_now/hover_mult))  # 1376, 434
+        idle "kitchen/knife.png"
+        hover "kitchen/knife_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    # Plant
+    imagebutton at bg_scale:
+        pos(int(813*bg_scale_const)-(x_now/hover_mult), int(71*bg_scale_const)-(y_now/hover_mult))  # 813, 71
+        idle "kitchen/plant.png"
+        hover "kitchen/plant_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    # Sink
+    imagebutton at bg_scale:
+        pos(int(1253*bg_scale_const)-(x_now/hover_mult), int(605*bg_scale_const)-(y_now/hover_mult))  # 1253, 605
+        idle "kitchen/sink.png"
+        hover "kitchen/sink_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    #text "[x_mouse]  [y_mouse]":
+    #    xalign 0.1
+    
+    timer 0.03 action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
 
 ################################################################################
 ## Styles
