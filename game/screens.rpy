@@ -8,6 +8,7 @@ image tdoor1 = im.MatrixColor("titledoor1closed.png", im.matrix.brightness(0.5))
 
 define s_dissolve = { "screens" : Dissolve(0.2) }
 define bg_scale_const = 0.71
+define timer_length = 0.03
 
 ################################################################################
 ## Transforms
@@ -128,7 +129,74 @@ screen kitchen1():
     #text "[x_mouse]  [y_mouse]":
     #    xalign 0.1
     
-    timer 0.03 action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
+    timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
+    
+screen office1():
+    modal True
+    
+    python:
+        pos = renpy.get_mouse_pos()
+        x_mouse = pos[0]
+        y_mouse = pos[1]
+        
+        x_now = (x_mouse+x_now)/smooth_const
+        y_now = (y_mouse+y_now)/smooth_const
+    
+    add "office/bg_office.png" at bg_scale:
+        pos(-(x_now/hover_mult), -(y_now/hover_mult))
+    
+    # Bookshelf
+    imagebutton at bg_scale:
+        pos(int(7*bg_scale_const)-(x_now/hover_mult), int(55*bg_scale_const)-(y_now/hover_mult))  # 7, 55
+        idle "office/bookshelf.png"
+        hover "office/bookshelf_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+    
+    # Laptop
+    imagebutton at bg_scale:
+        pos(int(1475*bg_scale_const)-(x_now/hover_mult), int(670*bg_scale_const)-(y_now/hover_mult))  # 1475, 670
+        idle "office/laptop.png"
+        hover "office/laptop_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    # Pigura
+    imagebutton at bg_scale:
+        pos(int(1431*bg_scale_const)-(x_now/hover_mult), int(188*bg_scale_const)-(y_now/hover_mult))  # 1431, 188
+        idle "office/pigura.png"
+        hover "office/pigura_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    # Stationery
+    imagebutton at bg_scale:
+        pos(int(1419*bg_scale_const)-(x_now/hover_mult), int(470*bg_scale_const)-(y_now/hover_mult))  # 1419, 470
+        idle "office/stationery.png"
+        hover "office/stationery_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    # Tissue
+    imagebutton at bg_scale:
+        pos(int(1295*bg_scale_const)-(x_now/hover_mult), int(1004*bg_scale_const)-(y_now/hover_mult))  # 1295, 1004
+        idle "office/tissue.png"
+        hover "office/tissue_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    # Tissue Box
+    imagebutton at bg_scale:
+        pos(int(1399*bg_scale_const)-(x_now/hover_mult), int(661*bg_scale_const)-(y_now/hover_mult))  # 1399, 661
+        idle "office/tissue_box.png"
+        hover "office/tissue_box_outline.png"
+        
+        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.2)), Jump("coffee_obj1")
+        
+    #text "[x_mouse]  [y_mouse]":
+    #    xalign 0.1
+    
+    timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
 
 ################################################################################
 ## Styles
