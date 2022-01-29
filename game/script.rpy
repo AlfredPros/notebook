@@ -1,5 +1,6 @@
-﻿define MC = Character("Sussy Baka Amogus")
+﻿define MC = Character("You")
 define Mocha = Character("Mocha")
+define N = Character("???")
 
 # Kitchen objects
 default book_obj = [False, False, False, False, False]
@@ -16,6 +17,7 @@ default pigura_obj = [False, False, False, False, False]
 default stationery_obj = [False, False, False, False, False]
 default tissue_obj = [False, False, False, False, False]
 default tissuebox_obj = [False, False, False, False, False]
+default dog_obj = [False, False, False, False, False]
 # Bedroom objects
 default kaca_obj = [False, False, False, False, False]
 
@@ -38,27 +40,28 @@ label splashscreen:
     pause 10
     hide text with dissolve
     pause 1
-    
+
     return
 
 label start:
 
-    call day1_bedroom_m
+    call prologue
+    call bedroom_day1
     $ day = 1
-    call day2_bedroom_m
+    call bedroom_day2
     $ day = 2
     # Decide ending
     python:
         if point > 0:
             goodend = 1
-    call day3_bedroom_m
+    call bedroom_day3
     $ day = 3
-    call day4_bedroom_m
+    call bedroom_day4
     $ day = 4
-    call day5_bedroom_m
+    call bedroom_day5
 
     return
-    
+
 label quit:
     stop music fadeout 1
     stop sound fadeout 1
