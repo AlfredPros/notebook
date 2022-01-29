@@ -27,12 +27,87 @@ label day4_bedroom_m:
     pause
     return
 
-label coffee_obj4:
+label plants_obj4:
     menu:
         "Yes":
-            $ point += 1
+            "uwu"
         "No":
-            $ point -= 1
+            "bad uwu"
+    "Nyimeng"
+    return
+
+label dogfeeder_good_obj2:
+    menu:
+        "Yes":
+            "uwu"
+        "No":
+            "bad uwu"
+    "Nyimeng"
+    return
+
+label dogfeeder_bad_obj2:
+    if dogfed == 2:
+        menu:
+            "Yes":
+                "overfill"
+            "No":
+                "bowl filled"
+    elif dogfed == 1:
+        menu:
+            "Yes":
+                "bowl filled"
+            "No":
+                "empty bowl"
+    else:
+        menu:
+            "Yes":
+                "empty bowl"
+            "No":
+                "empty bowl"
+
+    "Nyimeng"
+    return
+
+label book_obj4:
+    menu:
+        "Yes":
+            "uwu"
+        "No":
+            "bad uwu"
     "Nyimeng"
     "[point]"
+    return
+
+label laptop_obj4:
+    menu:
+        "Yes":
+            "uwu"
+        "No":
+            "bad uwu"
+    "Nyimeng"
+    "[point]"
+    return
+
+label stationary_obj4:
+    menu:
+        "Yes":
+            "uwu"
+        "No":
+            "bad uwu"
+    "Nyimeng"
+    "[point]"
+    return
+
+label dog_obj4:
+    menu:
+        "Yes":
+            "uwu"
+        "No":
+            "bad uwu"
+    "Nyimeng"
+    "[point]"
+    return
+
+label notebook_obj4:
+    "Dialog"
     return

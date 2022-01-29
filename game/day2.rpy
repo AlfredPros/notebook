@@ -27,7 +27,7 @@ label day2_bedroom_m:
     pause
     return
 
-label coffee_obj2:
+label plants_obj2:
     menu:
         "Yes":
             $ point += 1
@@ -35,4 +35,63 @@ label coffee_obj2:
             $ point -= 1
     "Nyimeng"
     "[point]"
+    return
+
+label dogfeeder_obj2:
+    menu:
+        "Yes":
+            $ point += 1
+            $ dogfed += 1
+        "No":
+            $ point -= 1
+    "Nyimeng"
+    "[point]"
+    return
+
+label book_obj2:
+    menu:
+        "Yes":
+            $ point += 1
+            $ dogfed += 1
+        "No":
+            $ point -= 1
+    "Nyimeng"
+    "[point]"
+    return
+
+label laptop_obj2:
+    menu:
+        "Yes":
+            $ point += 1
+            $ dogfed += 1
+        "No":
+            $ point -= 1
+    "Nyimeng"
+    "[point]"
+    return
+
+label stationary_obj2:
+    menu:
+        "Yes":
+            $ point += 1
+            $ dogfed += 1
+        "No":
+            $ point -= 1
+    "Nyimeng"
+    "[point]"
+    return
+
+label dog_obj2:
+    menu:
+        "Yes":
+            $ point += 1
+            $ dogfed += 1
+        "No":
+            $ point -= 1
+    "Nyimeng"
+    "[point]"
+    return
+
+label notebook_obj2:
+    "Dialog"
     return
