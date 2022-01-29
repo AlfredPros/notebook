@@ -1,4 +1,4 @@
-label day3_bedroom_m:
+label bedroom_day3:
     #branch to 2 endings
     #start in bedroom morning
     "uwu"

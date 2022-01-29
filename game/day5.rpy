@@ -1,4 +1,4 @@
-label day5_bedroom_m:
+label bedroom_day5:
     #start in bedroom morning
     "uwu"
     menu:
