@@ -1,15 +1,25 @@
 ﻿define MC = Character("Sussy Baka Amogus")
 define Mocha = Character("Mocha")
 
-default coffee_obj = [False, False, False, False, False]  # Per day
+# Kitchen objects
+default book_obj = [False, False, False, False, False]
+default boquet_obj = [False, False, False, False, False]
+default coffee_obj = [False, False, False, False, False]
 default dogfeeder_obj = [False, False, False, False, False]
+default knife_obj = [False, False, False, False, False]
+default plant_obj = [False, False, False, False, False]
 default sink_obj = [False, False, False, False, False]
-default laptop_obj = [False, False, False, False, False]
+# Office objects
 default bookshelf_obj = [False, False, False, False, False]
-default dog_obj = [False, False, False, False, False]
-default plants_obj = [False, False, False, False, False]
-default bouquet_obj = [False, False, False, False, False]
-default statonary_obj = [False, False, False, False, False]
+default laptop_obj = [False, False, False, False, False]
+default pigura_obj = [False, False, False, False, False]
+default stationery_obj = [False, False, False, False, False]
+default tissue_obj = [False, False, False, False, False]
+default tissuebox_obj = [False, False, False, False, False]
+# Bedroom objects
+default kaca_obj = [False, False, False, False, False]
+
+# General variables
 default day = 0
 default point = 0 #for good and bad points >:(
 default dogfed = 0 #if day 3 player no feed dog for 2 days straight, dog die :( else: dog run

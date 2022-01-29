@@ -29,35 +29,14 @@ define hover_mult = 10  # The less, the faster
 define smooth_const = 2  # DON'T CHANGE THIS
 default x_now = 0
 default y_now = 0
-
-screen poc():
-    modal True
-    
-    python:
-        pos = renpy.get_mouse_pos()
-        x_mouse = pos[0]
-        y_mouse = pos[1]
-        
-        x_now = (x_mouse+x_now)/smooth_const
-        y_now = (y_mouse+y_now)/smooth_const
-    
-    add "titlescreenbase":
-        zoom 0.55 pos(-(x_now/hover_mult), -(y_now/hover_mult))
-    
-    imagebutton at door:
-        pos((142+14)-(x_now/hover_mult), (194+20)-(y_now/hover_mult))
-        idle "titledoor1closed"
-        hover "tdoor1"
-        
-        action SetDict(coffee_obj, day, True), Hide("poc", transition=Dissolve(0.2)), Jump("coffee_obj1")
-        
-    text "[x_mouse]  [y_mouse]":
-        xalign 0.1
-    
-    timer 0.025 action renpy.restart_interaction repeat True  # 1 is ultra smooth, but no button is hoverable
+default modal_state = True
     
 screen kitchen1():
-    modal True
+    
+    if modal_state == True:
+        button:
+            keysym 'dismiss', 'rollback', 'skip', 'fast_skip', 'toggle_skip', 'hide_windows'
+            action NullAction()
     
     python:
         pos = renpy.get_mouse_pos()
@@ -75,71 +54,84 @@ screen kitchen1():
         pos(int(1705*bg_scale_const)-(x_now/hover_mult), int(197*bg_scale_const)-(y_now/hover_mult))  # 1705, 197
         idle "kitchen/book.png"
         hover "kitchen/book_outline.png"
+        sensitive (modal_state and book_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(book_obj, day, True), Jump("book_obj1")
     
     # Boquet
     imagebutton at bg_scale:
         pos(int(1124*bg_scale_const)-(x_now/hover_mult), int(436*bg_scale_const)-(y_now/hover_mult))  # 1124, 436
         idle "kitchen/boquet.png"
         hover "kitchen/boquet_outline.png"
+        sensitive (modal_state and boquet_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(boquet_obj, day, True), Jump("boquet_obj1")
         
     # Coffee Machine
     imagebutton at bg_scale:
         pos(int(641*bg_scale_const)-(x_now/hover_mult), int(507*bg_scale_const)-(y_now/hover_mult))  # 641, 507
         idle "kitchen/coffee_machine.png"
         hover "kitchen/coffee_machine_outline.png"
+        sensitive (modal_state and coffee_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Jump("coffee_obj1")
         
     # Dog Feeder - Empty
     imagebutton at bg_scale:
         pos(int(1604*bg_scale_const)-(x_now/hover_mult), int(859*bg_scale_const)-(y_now/hover_mult))  # 1604, 859
         idle "kitchen/dog_feeder_empty.png"
         hover "kitchen/dog_feeder_empty_outline.png"
+        sensitive (modal_state and dogfeeder_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj1")
         
     # Knife
     imagebutton at bg_scale:
         pos(int(1376*bg_scale_const)-(x_now/hover_mult), int(434*bg_scale_const)-(y_now/hover_mult))  # 1376, 434
         idle "kitchen/knife.png"
         hover "kitchen/knife_outline.png"
+        sensitive (modal_state and knife_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(knife_obj, day, True), Jump("knife_obj1")
         
     # Plant
     imagebutton at bg_scale:
         pos(int(813*bg_scale_const)-(x_now/hover_mult), int(71*bg_scale_const)-(y_now/hover_mult))  # 813, 71
         idle "kitchen/plant.png"
         hover "kitchen/plant_outline.png"
+        sensitive (modal_state and plant_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(plant_obj, day, True), Jump("plant_obj1")
         
     # Sink
     imagebutton at bg_scale:
         pos(int(1253*bg_scale_const)-(x_now/hover_mult), int(605*bg_scale_const)-(y_now/hover_mult))  # 1253, 605
         idle "kitchen/sink.png"
         hover "kitchen/sink_outline.png"
+        sensitive (modal_state and sink_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("kitchen1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(sink_obj, day, True), Jump("sink_obj1")
         
     vbox:
         align (0.95, 0.05)
         spacing 20
         
         textbutton "Go to Bedroom":
+            sensitive (modal_state)
             action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
             
         textbutton "Go to Office":
+            sensitive (modal_state)
             action Hide("kitchen1", transition=Dissolve(0.25)), Show("office1")
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
     
 screen office1():
-    modal True
+    
+    if modal_state == True:
+        button:
+            keysym 'dismiss', 'rollback', 'skip', 'fast_skip', 'toggle_skip', 'hide_windows'
+            action NullAction()
     
     python:
         pos = renpy.get_mouse_pos()
@@ -157,63 +149,75 @@ screen office1():
         pos(int(7*bg_scale_const)-(x_now/hover_mult), int(55*bg_scale_const)-(y_now/hover_mult))  # 7, 55
         idle "office/bookshelf.png"
         hover "office/bookshelf_outline.png"
+        sensitive (modal_state and bookshelf_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(bookshelf_obj, day, True), Jump("bookshelf_obj1")
     
     # Laptop
     imagebutton at bg_scale:
         pos(int(1475*bg_scale_const)-(x_now/hover_mult), int(670*bg_scale_const)-(y_now/hover_mult))  # 1475, 670
         idle "office/laptop.png"
         hover "office/laptop_outline.png"
+        sensitive (modal_state and laptop_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(laptop_obj, day, True), Jump("laptop_obj1")
         
     # Pigura
     imagebutton at bg_scale:
         pos(int(1431*bg_scale_const)-(x_now/hover_mult), int(188*bg_scale_const)-(y_now/hover_mult))  # 1431, 188
         idle "office/pigura.png"
         hover "office/pigura_outline.png"
+        sensitive (modal_state and pigura_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(pigura_obj, day, True), Jump("pigura_obj1")
         
     # Stationery
     imagebutton at bg_scale:
         pos(int(1419*bg_scale_const)-(x_now/hover_mult), int(470*bg_scale_const)-(y_now/hover_mult))  # 1419, 470
         idle "office/stationery.png"
         hover "office/stationery_outline.png"
+        sensitive (modal_state and stationery_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(stationery_obj, day, True), Jump("stationery_obj1")
         
     # Tissue
     imagebutton at bg_scale:
         pos(int(1295*bg_scale_const)-(x_now/hover_mult), int(1004*bg_scale_const)-(y_now/hover_mult))  # 1295, 1004
         idle "office/tissue.png"
         hover "office/tissue_outline.png"
+        sensitive (modal_state and tissue_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(tissue_obj, day, True), Jump("tissue_obj1")
         
     # Tissue Box
     imagebutton at bg_scale:
         pos(int(1399*bg_scale_const)-(x_now/hover_mult), int(661*bg_scale_const)-(y_now/hover_mult))  # 1399, 661
         idle "office/tissue_box.png"
         hover "office/tissue_box_outline.png"
+        sensitive (modal_state and tissuebox_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("office1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(tissuebox_obj, day, True), Jump("tissuebox_obj1")
         
     vbox:
         align (0.95, 0.05)
         spacing 20
         
         textbutton "Go to Kitchen":
+            sensitive (modal_state)
             action Hide("office1", transition=Dissolve(0.25)), Show("kitchen1")
             
         textbutton "Go to Bedroom":
+            sensitive (modal_state)
             action Hide("office1", transition=Dissolve(0.25)), Show("bedroom1")
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
     
 screen bedroom1():
-    modal True
+    
+    if modal_state == True:
+        button:
+            keysym 'dismiss', 'rollback', 'skip', 'fast_skip', 'toggle_skip', 'hide_windows'
+            action NullAction()
     
     python:
         pos = renpy.get_mouse_pos()
@@ -231,25 +235,29 @@ screen bedroom1():
         pos(int(1372*bg_scale_const)-(x_now/hover_mult), int(246*bg_scale_const)-(y_now/hover_mult))  # 1372, 246
         idle "bedroom/kaca.png"
         hover "bedroom/kaca_outline.png"
+        sensitive (modal_state and kaca_obj[day] == False)
         
-        action SetDict(coffee_obj, day, True), Hide("bedroom1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action SetDict(kaca_obj, day, True), Jump("kaca_obj1")
     
     # Notebook
     imagebutton at bg_scale:
         pos(int(1432*bg_scale_const)-(x_now/hover_mult), int(569*bg_scale_const)-(y_now/hover_mult))  # 1432, 569
         idle "bedroom/notebook.png"
         hover "bedroom/notebook_outline.png"
+        sensitive (modal_state)
         
-        action SetDict(coffee_obj, day, True), Hide("bedroom1", transition=Dissolve(0.25)), Jump("coffee_obj1")
+        action Jump("notebook_obj1")
     
     vbox:
         align (0.95, 0.05)
         spacing 20
         
         textbutton "Go to Kitchen":
+            sensitive (modal_state)
             action Hide("bedroom1", transition=Dissolve(0.25)), Show("kitchen1")
             
         textbutton "Go to Office":
+            sensitive (modal_state)
             action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
@@ -502,13 +510,13 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Back") action Rollback()
+            #textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
+            #textbutton _("Q.Save") action QuickSave()
+            #textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
 
 
