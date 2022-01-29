@@ -6,7 +6,7 @@ init offset = -1
 
 image tdoor1 = im.MatrixColor("titledoor1closed.png", im.matrix.brightness(0.5))
 
-define s_dissolve = { "screens" : Dissolve(0.2) }
+define s_dissolve = { "screens" : Dissolve(0.25) }
 define bg_scale_const = 0.71
 define timer_length = 0.03
 
@@ -56,6 +56,7 @@ screen kitchen1():
         hover "kitchen/book_outline.png"
         sensitive (modal_state and book_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(book_obj, day, True), Jump("book_obj1")
     
     # Boquet
@@ -65,6 +66,7 @@ screen kitchen1():
         hover "kitchen/boquet_outline.png"
         sensitive (modal_state and boquet_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(boquet_obj, day, True), Jump("boquet_obj1")
         
     # Coffee Machine
@@ -74,6 +76,7 @@ screen kitchen1():
         hover "kitchen/coffee_machine_outline.png"
         sensitive (modal_state and coffee_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(coffee_obj, day, True), Jump("coffee_obj1")
         
     # Dog Feeder - Empty
@@ -83,6 +86,7 @@ screen kitchen1():
         hover "kitchen/dog_feeder_empty_outline.png"
         sensitive (modal_state and dogfeeder_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj1")
         
     # Knife
@@ -92,6 +96,7 @@ screen kitchen1():
         hover "kitchen/knife_outline.png"
         sensitive (modal_state and knife_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(knife_obj, day, True), Jump("knife_obj1")
         
     # Plant
@@ -101,6 +106,7 @@ screen kitchen1():
         hover "kitchen/plant_outline.png"
         sensitive (modal_state and plant_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(plant_obj, day, True), Jump("plant_obj1")
         
     # Sink
@@ -110,6 +116,7 @@ screen kitchen1():
         hover "kitchen/sink_outline.png"
         sensitive (modal_state and sink_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(sink_obj, day, True), Jump("sink_obj1")
         
     vbox:
@@ -118,10 +125,12 @@ screen kitchen1():
         
         textbutton "Go to Bedroom":
             sensitive (modal_state)
+            hovered Play("sound", "audio/button-hover.ogg")
             action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
             
         textbutton "Go to Office":
             sensitive (modal_state)
+            hovered Play("sound", "audio/button-hover.ogg")
             action Hide("kitchen1", transition=Dissolve(0.25)), Show("office1")
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
@@ -151,6 +160,7 @@ screen office1():
         hover "office/bookshelf_outline.png"
         sensitive (modal_state and bookshelf_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(bookshelf_obj, day, True), Jump("bookshelf_obj1")
     
     # Laptop
@@ -160,6 +170,7 @@ screen office1():
         hover "office/laptop_outline.png"
         sensitive (modal_state and laptop_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(laptop_obj, day, True), Jump("laptop_obj1")
         
     # Pigura
@@ -169,6 +180,7 @@ screen office1():
         hover "office/pigura_outline.png"
         sensitive (modal_state and pigura_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(pigura_obj, day, True), Jump("pigura_obj1")
         
     # Stationery
@@ -178,6 +190,7 @@ screen office1():
         hover "office/stationery_outline.png"
         sensitive (modal_state and stationery_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(stationery_obj, day, True), Jump("stationery_obj1")
         
     # Tissue
@@ -187,6 +200,7 @@ screen office1():
         hover "office/tissue_outline.png"
         sensitive (modal_state and tissue_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(tissue_obj, day, True), Jump("tissue_obj1")
         
     # Tissue Box
@@ -196,6 +210,7 @@ screen office1():
         hover "office/tissue_box_outline.png"
         sensitive (modal_state and tissuebox_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(tissuebox_obj, day, True), Jump("tissuebox_obj1")
         
     vbox:
@@ -204,10 +219,12 @@ screen office1():
         
         textbutton "Go to Kitchen":
             sensitive (modal_state)
+            hovered Play("sound", "audio/button-hover.ogg")
             action Hide("office1", transition=Dissolve(0.25)), Show("kitchen1")
             
         textbutton "Go to Bedroom":
             sensitive (modal_state)
+            hovered Play("sound", "audio/button-hover.ogg")
             action Hide("office1", transition=Dissolve(0.25)), Show("bedroom1")
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
@@ -237,6 +254,7 @@ screen bedroom1():
         hover "bedroom/kaca_outline.png"
         sensitive (modal_state and kaca_obj[day] == False)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action SetDict(kaca_obj, day, True), Jump("kaca_obj1")
     
     # Notebook
@@ -246,6 +264,7 @@ screen bedroom1():
         hover "bedroom/notebook_outline.png"
         sensitive (modal_state)
         
+        hovered Play("sound", "audio/button-hover.ogg")
         action Jump("notebook_obj1")
     
     vbox:
@@ -254,10 +273,12 @@ screen bedroom1():
         
         textbutton "Go to Kitchen":
             sensitive (modal_state)
+            hovered Play("sound", "audio/button-hover.ogg")
             action Hide("bedroom1", transition=Dissolve(0.25)), Show("kitchen1")
             
         textbutton "Go to Office":
             sensitive (modal_state)
+            hovered Play("sound", "audio/button-hover.ogg")
             action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
@@ -466,7 +487,10 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            textbutton i.caption:
+                activate_sound "audio/button-click.ogg"
+                hovered Play("sound", "audio/button-hover.ogg")
+                action i.action
 
 
 ## When this is true, menu captions will be spoken by the narrator. When false,
@@ -513,8 +537,9 @@ screen quick_menu():
             #textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
+            #textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
+            textbutton _("Load") action ShowMenu('load')
             #textbutton _("Q.Save") action QuickSave()
             #textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
@@ -558,17 +583,32 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("Start"):
+                activate_sound "audio/button-click.ogg"
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Start()
 
         else:
 
-            textbutton _("History") action ShowMenu("history")
+            textbutton _("History"):
+                activate_sound "audio/button-click.ogg"
+                hovered Play("sound", "audio/button-hover.ogg")
+                action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            textbutton _("Save"):
+                activate_sound "audio/button-click.ogg"
+                hovered Play("sound", "audio/button-hover.ogg")
+                action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        textbutton _("Load"):
+            activate_sound "audio/button-click.ogg"
+            hovered Play("sound", "audio/button-hover.ogg")
+            action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Preferences"):
+            activate_sound "audio/button-click.ogg"
+            hovered Play("sound", "audio/button-hover.ogg")
+            action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -576,20 +616,32 @@ screen navigation():
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("Main Menu"):
+                activate_sound "audio/button-click.ogg"
+                hovered Play("sound", "audio/button-hover.ogg")
+                action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        textbutton _("About"):
+            activate_sound "audio/button-click.ogg"
+            hovered Play("sound", "audio/button-hover.ogg")
+            action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            textbutton _("Help"):
+                activate_sound "audio/button-click.ogg"
+                hovered Play("sound", "audio/button-hover.ogg")
+                action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            textbutton _("Quit"):
+                activate_sound "audio/button-click.ogg"
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -732,7 +784,9 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     textbutton _("Return"):
         style "return_button"
-
+    
+        activate_sound "audio/button-click.ogg"
+        hovered Play("sound", "audio/button-hover.ogg")
         action Return()
 
     label title
@@ -892,6 +946,7 @@ screen file_slots(title):
                     $ slot = i + 1
 
                     button:
+                        hovered Play("sound", "audio/button-hover.ogg")
                         action FileAction(slot)
 
                         has vbox
@@ -1421,8 +1476,14 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 100
 
-                textbutton _("Yes") action yes_action
-                textbutton _("No") action no_action
+                textbutton _("Yes"):
+                    activate_sound "audio/button-click.ogg"
+                    hovered Play("sound", "audio/button-hover.ogg")
+                    action yes_action
+                textbutton _("No"):
+                    activate_sound "audio/button-click.ogg"
+                    hovered Play("sound", "audio/button-hover.ogg")
+                    action no_action
 
     ## Right-click and escape answer "no".
     key "game_menu" action no_action
