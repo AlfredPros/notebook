@@ -57,7 +57,7 @@ screen kitchen1():
         sensitive (modal_state and book_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(book_obj, day, True), Jump("book_obj1")
+        action SetDict(book_obj, day, True), Jump("book_obj"+str(day+1))
     
     # Boquet
     imagebutton at bg_scale:
@@ -67,7 +67,7 @@ screen kitchen1():
         sensitive (modal_state and boquet_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(boquet_obj, day, True), Jump("boquet_obj1")
+        action SetDict(boquet_obj, day, True), Jump("boquet_obj"+str(day+1))
         
     # Coffee Machine
     imagebutton at bg_scale:
@@ -77,7 +77,7 @@ screen kitchen1():
         sensitive (modal_state and coffee_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(coffee_obj, day, True), Jump("coffee_obj1")
+        action SetDict(coffee_obj, day, True), Jump("coffee_obj"+str(day+1))
         
     # Dog Feeder - Empty
     imagebutton at bg_scale:
@@ -87,7 +87,7 @@ screen kitchen1():
         sensitive (modal_state and dogfeeder_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj1")
+        action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj"+str(day+1))
         
     # Knife
     imagebutton at bg_scale:
@@ -97,7 +97,7 @@ screen kitchen1():
         sensitive (modal_state and knife_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(knife_obj, day, True), Jump("knife_obj1")
+        action SetDict(knife_obj, day, True), Jump("knife_obj"+str(day+1))
         
     # Plant
     imagebutton at bg_scale:
@@ -107,7 +107,7 @@ screen kitchen1():
         sensitive (modal_state and plant_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(plant_obj, day, True), Jump("plant_obj1")
+        action SetDict(plant_obj, day, True), Jump("plant_obj"+str(day+1))
         
     # Sink
     imagebutton at bg_scale:
@@ -117,7 +117,7 @@ screen kitchen1():
         sensitive (modal_state and sink_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(sink_obj, day, True), Jump("sink_obj1")
+        action SetDict(sink_obj, day, True), Jump("sink_obj"+str(day+1))
         
     vbox:
         align (0.95, 0.05)
@@ -161,7 +161,7 @@ screen office1():
         sensitive (modal_state and bookshelf_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(bookshelf_obj, day, True), Jump("bookshelf_obj1")
+        action SetDict(bookshelf_obj, day, True), Jump("bookshelf_obj"+str(day+1))
     
     # Laptop
     imagebutton at bg_scale:
@@ -171,7 +171,7 @@ screen office1():
         sensitive (modal_state and laptop_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(laptop_obj, day, True), Jump("laptop_obj1")
+        action SetDict(laptop_obj, day, True), Jump("laptop_obj"+str(day+1))
         
     # Pigura
     imagebutton at bg_scale:
@@ -181,7 +181,7 @@ screen office1():
         sensitive (modal_state and pigura_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(pigura_obj, day, True), Jump("pigura_obj1")
+        action SetDict(pigura_obj, day, True), Jump("pigura_obj"+str(day+1))
         
     # Stationery
     imagebutton at bg_scale:
@@ -191,7 +191,7 @@ screen office1():
         sensitive (modal_state and stationery_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(stationery_obj, day, True), Jump("stationery_obj1")
+        action SetDict(stationery_obj, day, True), Jump("stationery_obj"+str(day+1))
         
     # Tissue
     imagebutton at bg_scale:
@@ -201,7 +201,7 @@ screen office1():
         sensitive (modal_state and tissue_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(tissue_obj, day, True), Jump("tissue_obj1")
+        action SetDict(tissue_obj, day, True), Jump("tissue_obj"+str(day+1))
         
     # Tissue Box
     imagebutton at bg_scale:
@@ -211,7 +211,7 @@ screen office1():
         sensitive (modal_state and tissuebox_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(tissuebox_obj, day, True), Jump("tissuebox_obj1")
+        action SetDict(tissuebox_obj, day, True), Jump("tissuebox_obj"+str(day+1))
         
     vbox:
         align (0.95, 0.05)
@@ -255,7 +255,7 @@ screen bedroom1():
         sensitive (modal_state and kaca_obj[day] == False)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(kaca_obj, day, True), Jump("kaca_obj1")
+        action SetDict(kaca_obj, day, True), Jump("kaca_obj"+str(day+1))
     
     # Notebook
     imagebutton at bg_scale:
@@ -265,7 +265,7 @@ screen bedroom1():
         sensitive (modal_state)
         
         hovered Play("sound", "audio/button-hover.ogg")
-        action Jump("notebook_obj1")
+        action Jump("notebook_obj"+str(day+1))
     
     vbox:
         align (0.95, 0.05)
