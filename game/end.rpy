@@ -12,7 +12,7 @@ label end:
         "Good End"
     else:
         T "His condition is worsen, I'm not quite sure what happened."
-        if dogdie == 1
+        if dogdie == 1:
             T "I think when his pet die it made him completely sapped."
         else:
             T "I think when his pet ran away it made him completely sapped."
