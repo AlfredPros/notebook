@@ -30,13 +30,13 @@ default goodend = 0 #bruh
 label splashscreen:
     scene black
     pause 1
-    show text "Supar Sikrit Klab Presents" with dissolve
+    show text "{size=+20}Supar Sikrit Klab Presents{/size}" with dissolve
     pause 2
     hide text with dissolve
     pause 1
     show text "{size=+50}Notebook{/size}" with dissolve
     pause 4
-    show text "Warning, the following content and game contains scenes of disturbing nature, act, and in-game scenes. All the characters, art, storylines depicted in this game are purely the work of fiction, any similarity to the real world are purely coincidental. Players discretion is advised." with dissolve
+    show text "{size=+5}Warning, the following content and game contains scenes of disturbing nature, act, and in-game scenes. All the characters, art, storylines depicted in this game are purely the work of fiction, any similarity to the real world are purely coincidental. Players discretion is advised.{/size}" with dissolve
     pause 10
     hide text with dissolve
     pause 1
@@ -44,6 +44,9 @@ label splashscreen:
     return
 
 label start:
+    hide screen main_menu
+    scene black
+    with Dissolve(1)
 
     call prologue
     call bedroom_day1
@@ -54,6 +57,8 @@ label start:
     python:
         if point > 0:
             goodend = 1
+        else:
+            goodend = -1
     call bedroom_day3
     $ day = 3
     call bedroom_day4

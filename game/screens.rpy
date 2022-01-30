@@ -60,14 +60,15 @@ screen kitchen1():
         action SetDict(book_obj, day, True), Jump("book_obj"+str(day+1))
     
     # Boquet
-    imagebutton at bg_scale:
-        pos(int(1124*bg_scale_const)-(x_now/hover_mult), int(436*bg_scale_const)-(y_now/hover_mult))  # 1124, 436
-        idle "kitchen/boquet.png"
-        hover "kitchen/boquet_outline.png"
-        sensitive (modal_state and boquet_obj[day] == False)
-        
-        hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(boquet_obj, day, True), Jump("boquet_obj"+str(day+1))
+    if goodend == 1:
+        imagebutton at bg_scale:
+            pos(int(1124*bg_scale_const)-(x_now/hover_mult), int(436*bg_scale_const)-(y_now/hover_mult))  # 1124, 436
+            idle "kitchen/boquet.png"
+            hover "kitchen/boquet_outline.png"
+            sensitive (modal_state and boquet_obj[day] == False)
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(boquet_obj, day, True), Jump("boquet_obj"+str(day+1))
         
     # Coffee Machine
     imagebutton at bg_scale:
@@ -90,14 +91,15 @@ screen kitchen1():
         action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj"+str(day+1))
         
     # Knife
-    imagebutton at bg_scale:
-        pos(int(1376*bg_scale_const)-(x_now/hover_mult), int(434*bg_scale_const)-(y_now/hover_mult))  # 1376, 434
-        idle "kitchen/knife.png"
-        hover "kitchen/knife_outline.png"
-        sensitive (modal_state and knife_obj[day] == False)
-        
-        hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(knife_obj, day, True), Jump("knife_obj"+str(day+1))
+    if goodend == -1:
+        imagebutton at bg_scale:
+            pos(int(1376*bg_scale_const)-(x_now/hover_mult), int(434*bg_scale_const)-(y_now/hover_mult))  # 1376, 434
+            idle "kitchen/knife.png"
+            hover "kitchen/knife_outline.png"
+            sensitive (modal_state and knife_obj[day] == False)
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(knife_obj, day, True), Jump("knife_obj"+str(day+1))
         
     # Plant
     imagebutton at bg_scale:
@@ -174,14 +176,15 @@ screen office1():
         action SetDict(laptop_obj, day, True), Jump("laptop_obj"+str(day+1))
         
     # Pigura
-    imagebutton at bg_scale:
-        pos(int(1431*bg_scale_const)-(x_now/hover_mult), int(188*bg_scale_const)-(y_now/hover_mult))  # 1431, 188
-        idle "office/pigura.png"
-        hover "office/pigura_outline.png"
-        sensitive (modal_state and pigura_obj[day] == False)
-        
-        hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(pigura_obj, day, True), Jump("pigura_obj"+str(day+1))
+    if goodend == 1:
+        imagebutton at bg_scale:
+            pos(int(1431*bg_scale_const)-(x_now/hover_mult), int(188*bg_scale_const)-(y_now/hover_mult))  # 1431, 188
+            idle "office/pigura.png"
+            hover "office/pigura_outline.png"
+            sensitive (modal_state and pigura_obj[day] == False)
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(pigura_obj, day, True), Jump("pigura_obj"+str(day+1))
         
     # Stationery
     imagebutton at bg_scale:
@@ -194,14 +197,15 @@ screen office1():
         action SetDict(stationery_obj, day, True), Jump("stationery_obj"+str(day+1))
         
     # Tissue
-    imagebutton at bg_scale:
-        pos(int(1295*bg_scale_const)-(x_now/hover_mult), int(1004*bg_scale_const)-(y_now/hover_mult))  # 1295, 1004
-        idle "office/tissue.png"
-        hover "office/tissue_outline.png"
-        sensitive (modal_state and tissue_obj[day] == False)
-        
-        hovered Play("sound", "audio/button-hover.ogg")
-        action SetDict(tissue_obj, day, True), Jump("tissue_obj"+str(day+1))
+    if goodend == -1:
+        imagebutton at bg_scale:
+            pos(int(1295*bg_scale_const)-(x_now/hover_mult), int(1004*bg_scale_const)-(y_now/hover_mult))  # 1295, 1004
+            idle "office/tissue.png"
+            hover "office/tissue_outline.png"
+            sensitive (modal_state and tissue_obj[day] == False)
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(tissue_obj, day, True), Jump("tissue_obj"+str(day+1))
         
     # Tissue Box
     imagebutton at bg_scale:
