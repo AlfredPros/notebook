@@ -51,7 +51,7 @@ label dogfeeder_bad_obj4:
 
     return
 
-label plant_obj1:
+label plant_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     "The plants have seen better days, I should water it."
@@ -72,7 +72,7 @@ label plant_obj1:
 
     return
 
-label sink_obj1:
+label sink_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     "The dish is going to keep piling up, maybe I should clean it?"
@@ -94,7 +94,7 @@ label sink_obj1:
 
     return
 
-label boquet_obj1:
+label boquet_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     "Huh, it's starting to wit, maybe some more water?"
@@ -116,7 +116,7 @@ label boquet_obj1:
 
     return
 
-label coffee_obj1:
+label coffee_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
 
@@ -142,7 +142,7 @@ label coffee_obj1:
 
 ## Office objects #############################################################
 
-label laptop_obj2:
+label laptop_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     "Maybe I should continue my work?"
@@ -169,7 +169,7 @@ label laptop_obj2:
 
     return
 
-label stationery_obj2:
+label stationery_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     "Pencils, Pens, I never used it since I have this laptop, maybe I should put it away?"
@@ -189,7 +189,7 @@ label stationery_obj2:
 
     return
 
-label pigura_obj1:
+label pigura_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     #day 3 good end only
@@ -200,7 +200,7 @@ label pigura_obj1:
     pause
 
     return
-label tissue_obj1:
+label tissue_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     #day 3+ bad end only
@@ -220,7 +220,7 @@ label tissue_obj1:
 
     return
 
-label tissuebox_obj1:
+label tissuebox_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     #day 3+ bad end only
@@ -240,7 +240,7 @@ label tissuebox_obj1:
 
 ## Bedroom objects ##################################################################
 
-label kaca_obj3:
+label kaca_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     "Hey there, handsome!"  # No need for choice, I think.
@@ -250,7 +250,7 @@ label kaca_obj3:
 
     return
 
-label notebook_obj3:
+label notebook_obj4:
     $ modal_state = False
     window show Dissolve(0.2)
     # Check if all items has been interacted
