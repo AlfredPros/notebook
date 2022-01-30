@@ -350,7 +350,7 @@ label notebook_obj1:
     $ modal_state = False
     window show Dissolve(0.2)
     # Check if all items has been interacted
-    if coffee_obj[0] == False or sink_obj[0] == False or dogfeeder_obj[0] == False or laptop_obj[0] == False or bookshelf_obj[0] or False:
+    if coffee_obj[0] == False or sink_obj[0] == False or dogfeeder_obj[0] == False or laptop_obj[0] == False or bookshelf_obj[0] == False:
         "There's something I haven't checked yet." # if not all items have been interacted
         window hide Dissolve(0.2)
         $ modal_state = True

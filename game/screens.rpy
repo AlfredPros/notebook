@@ -284,6 +284,13 @@ screen bedroom1():
             sensitive (modal_state)
             hovered Play("sound", "audio/button-hover.ogg")
             action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
+            
+    vbox:
+        text "coffee_obj = [coffee_obj]"
+        text "sink_obj = [sink_obj]"
+        text "dogfeeder_obj = [dogfeeder_obj]"
+        text "laptop_obj = [laptop_obj]"
+        text "bookshelf_obj = [bookshelf_obj]"
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
 
