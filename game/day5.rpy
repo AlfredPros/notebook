@@ -97,7 +97,7 @@ label coffee_obj5:
 
     "A morning warm cup of coffee would be nice."
     menu:
-        "{b}Drink Coffee{/b}":
+        "Drink Coffee":
             play sound coffee_machine
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
@@ -226,7 +226,7 @@ label notebook_obj5:
     window show Dissolve(0.2)
     # Check if all items has been interacted
     if goodend == 1:
-        if dogfeeder_good_obj[4] == False or coffee_obj[4] == False or boquet_obj[4] == False or bookshelf_obj[4] == False or laptop_obj[4] == False or pigura_obj[4] == False:
+        if dogfeeder_obj[4] == False or coffee_obj[4] == False or boquet_obj[4] == False or bookshelf_obj[4] == False or laptop_obj[4] == False or pigura_obj[4] == False:
             "There's something I haven't checked yet." # if not all items have been interacted
             window hide Dissolve(0.2)
             $ modal_state = True
@@ -242,7 +242,7 @@ label notebook_obj5:
 
             pause 0.5
     else:
-        if knife_obj[4] == False or plant_obj[4] == False or dogfeeder_bad_obj[4] == False or laptop_obj[4] == False or tissuebox_obj[4] == False or bookshelf_obj[4] == False:
+        if knife_obj[4] == False or plant_obj[4] == False or dogfeeder_obj[4] == False or laptop_obj[4] == False or tissuebox_obj[4] == False or bookshelf_obj[4] == False:
             "There's something I haven't checked yet." # if not all items have been interacted
             window hide Dissolve(0.2)
             $ modal_state = True

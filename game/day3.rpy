@@ -262,7 +262,7 @@ label notebook_obj3:
     window show Dissolve(0.2)
     # Check if all items has been interacted
     if goodend == 1:
-        if dogfeeder_good_obj[2] == False or plant_obj[2] == False or boquet_obj[2] == False or laptop_obj[2] == False or stationery_obj[2] == False or pigura_obj[2] == False:
+        if dogfeeder_obj[2] == False or plant_obj[2] == False or boquet_obj[2] == False or laptop_obj[2] == False or stationery_obj[2] == False or pigura_obj[2] == False:
             "There's something I haven't checked yet." # if not all items have been interacted
             window hide Dissolve(0.2)
             $ modal_state = True
@@ -278,7 +278,7 @@ label notebook_obj3:
 
             pause 0.5
     else:
-        if knife_obj[2] == False or plant_obj[2] == False or dogfeeder_bad_obj[2] == False or laptop_obj[2] == False or tissue_obj[2] == False or tissuebox_obj[2] == False:
+        if knife_obj[2] == False or plant_obj[2] == False or dogfeeder_obj[2] == False or laptop_obj[2] == False or tissue_obj[2] == False or tissuebox_obj[2] == False:
             "There's something I haven't checked yet." # if not all items have been interacted
             window hide Dissolve(0.2)
             $ modal_state = True
