@@ -24,6 +24,7 @@ label bedroom_day5:
 
 label dogfeeder_good_obj5:
     $ modal_state = False
+    window show Dissolve(0.2)
     "I should feed Mocha."
     menu:
         "Feed him":
@@ -37,9 +38,14 @@ label dogfeeder_good_obj5:
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
             "He seems to enjoy it."
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
     return
 
 label dogfeeder_bad_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
     "I should feed {b}him{/b}."
     menu:
         "Yes":
@@ -48,7 +54,9 @@ label dogfeeder_bad_obj5:
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
             "Mocha, It's time to chow down."
-
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
     return
 
 label plant_obj5:
