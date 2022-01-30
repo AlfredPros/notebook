@@ -41,7 +41,7 @@ label plants_obj5:
     "Nyimeng"
     return
 
-label dogfeeder_good_obj3:
+label dogfeeder_good_obj5:
     menu:
         "Yes":
             "uwu"
@@ -50,7 +50,7 @@ label dogfeeder_good_obj3:
     "Nyimeng"
     return
 
-label dogfeeder_bad_obj3:
+label dogfeeder_bad_obj5:
     if dogfed >= 2:
         menu:
             "Yes":
