@@ -15,14 +15,14 @@ label bedroom_day1:
             "I've definitely slept well over 5 minutes."
 
     window hide
-    label unfinished_day1:
-        python:
-            pos = renpy.get_mouse_pos()
-            x_now = pos[0]
-            y_now = pos[1]
-        show screen bedroom1 with s_dissolve
-        pause
-        return
+
+    python:
+        pos = renpy.get_mouse_pos()
+        x_now = pos[0]
+        y_now = pos[1]
+    show screen bedroom1 with s_dissolve
+    pause
+
     return
 
 ## Kitchen objects ##############################################################
@@ -350,21 +350,24 @@ label notebook_obj1:
     $ modal_state = False
     window show Dissolve(0.2)
     # Check if all items has been interacted
-    if coffee_obj[0] == [false],  sink_obj[0] == [false],  dogfeeder_obj[0] == [false], laptop_obj[0] == [false], bookshelf_obj[0] == [false], dog_obj[0] == [false]:
+    if coffee_obj[0] == False or sink_obj[0] == False or dogfeeder_obj[0] == False or laptop_obj[0] == False or bookshelf_obj[0] or False:
         "There's something I haven't checked yet." # if not all items have been interacted
-        jump unfinished_day1
+        window hide Dissolve(0.2)
+        $ modal_state = True
+        pause
     else:
         "Let's see what I've done today..."  # if all items have been interacted
+        window hide Dissolve(0.2)
+        $ modal_state = True
+
+        hide screen bedroom1
+        scene black
+        with dissolve
+
+        pause 0.5
     # Summary stuff
     "Nyimeng"
     "[point]"
-    window hide Dissolve(0.2)
-    $ modal_state = True
 
-    hide screen bedroom1
-    scene black
-    with dissolve
-
-    pause 0.5
 
     return
