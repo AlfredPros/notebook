@@ -106,25 +106,45 @@ screen kitchen1():
                 hovered Play("sound", "audio/button-hover.ogg")
                 action SetDict(coffee_obj, day, True), Jump("coffee_obj"+str(day+1))
         
-    # Dog Feeder - Empty
+    # Dog Feeder
     if goodend != -1:
-        imagebutton at bg_scale:
-            pos(int(1604*bg_scale_const)-(x_now/hover_mult), int(859*bg_scale_const)-(y_now/hover_mult))  # 1604, 859
-            idle "kitchen/dog_feeder_empty.png"
-            hover "kitchen/dog_feeder_empty_outline.png"
-            sensitive (modal_state and dogfeeder_obj[day] == False)
-            
-            hovered Play("sound", "audio/button-hover.ogg")
-            action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj"+str(day+1))
+        if dogfed > 1:
+            imagebutton at bg_scale:
+                pos(int(1604*bg_scale_const)-(x_now/hover_mult), int(859*bg_scale_const)-(y_now/hover_mult))  # 1604, 859
+                idle "kitchen/dog_feeder_filled.png"
+                hover "kitchen/dog_feeder_filled_outline.png"
+                sensitive (modal_state and dogfeeder_obj[day] == False)
+                
+                hovered Play("sound", "audio/button-hover.ogg")
+                action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj"+str(day+1))
+        else:
+            imagebutton at bg_scale:
+                pos(int(1604*bg_scale_const)-(x_now/hover_mult), int(859*bg_scale_const)-(y_now/hover_mult))  # 1604, 859
+                idle "kitchen/dog_feeder_empty.png"
+                hover "kitchen/dog_feeder_empty_outline.png"
+                sensitive (modal_state and dogfeeder_obj[day] == False)
+                
+                hovered Play("sound", "audio/button-hover.ogg")
+                action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj"+str(day+1))
     else:
-        imagebutton at bg_scale:
-            pos(int(1507*bg_scale_const)-(x_now/hover_mult), int(764*bg_scale_const)-(y_now/hover_mult))  # 1507, 764
-            idle "kitchen/bad/dog_empty.png"
-            hover "kitchen/bad/dog_empty_outline.png"
-            sensitive (modal_state and dogfeeder_obj[day] == False)
-            
-            hovered Play("sound", "audio/button-hover.ogg")
-            action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj"+str(day+1))
+        if dogfed > 1:
+            imagebutton at bg_scale:
+                pos(int(1507*bg_scale_const)-(x_now/hover_mult), int(764*bg_scale_const)-(y_now/hover_mult))  # 1507, 764
+                idle "kitchen/bad/dog_overfilled.png"
+                hover "kitchen/bad/dog_overfilled_outline.png"
+                sensitive (modal_state and dogfeeder_obj[day] == False)
+                
+                hovered Play("sound", "audio/button-hover.ogg")
+                action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj"+str(day+1))
+        else:
+            imagebutton at bg_scale:
+                pos(int(1507*bg_scale_const)-(x_now/hover_mult), int(764*bg_scale_const)-(y_now/hover_mult))  # 1507, 764
+                idle "kitchen/bad/dog_empty.png"
+                hover "kitchen/bad/dog_empty_outline.png"
+                sensitive (modal_state and dogfeeder_obj[day] == False)
+                
+                hovered Play("sound", "audio/button-hover.ogg")
+                action SetDict(dogfeeder_obj, day, True), Jump("dogfeeder_obj"+str(day+1))
         
     # Knife
     if goodend == -1 and (day == 2 or day == 4):
