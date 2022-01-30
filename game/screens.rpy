@@ -517,7 +517,7 @@ screen bedroom1():
                 action Hide("bedroom1", transition=Dissolve(0.25)), Show("kitchen1")
                 
             imagebutton:
-                idle "ui/15.png"
+                idle "ui/17.png"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
