@@ -40,7 +40,29 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
-                      For Global Game Jam 2021.
+                        Our Team:
+                        Alfred Kuhlman: GUI Coder
+                        Andy: Script Coder.
+                        Victoria: Storywriter,  UI Design, Environment design
+                        Feiza Joane: Sound Designer, Music Producer 
+                        Louisa: Character Design, Object? Design.
+
+                        Special Thanks To:
+                        Global Game Jam 2022
+                        Game Development Club UMN
+                        J-Cafe Visual Novel Division
+                        etc tinggal tambah disini
+
+                        Music:
+                        Sketches
+                        Colors
+                        Void
+                        Normal main menu
+                        Bad main menu
+                        Good main menu
+
+                        Audio:
+                        Thanks to freeaudio.org and orange free sounds for sfx.
 """)
 
 

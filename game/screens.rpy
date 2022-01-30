@@ -188,19 +188,52 @@ screen kitchen1():
                 hovered Play("sound", "audio/button-hover.ogg")
                 action SetDict(sink_obj, day, True), Jump("sink_obj"+str(day+1))
         
-    vbox:
+    hbox:
         align (0.95, 0.05)
         spacing 20
         
-        textbutton "Go to Bedroom":
-            sensitive (modal_state)
-            hovered Play("sound", "audio/button-hover.ogg")
-            action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
-            
-        textbutton "Go to Office":
-            sensitive (modal_state)
-            hovered Play("sound", "audio/button-hover.ogg")
-            action Hide("kitchen1", transition=Dissolve(0.25)), Show("office1")
+        if goodend != -1:
+            imagebutton:
+                idle "ui/15.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
+                
+            imagebutton:
+                idle "ui/17.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("kitchen1", transition=Dissolve(0.25)), Show("office1")
+                
+            imagebutton:
+                idle "ui/14.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action ShowMenu('preferences')
+        else:
+            imagebutton:
+                idle "ui/bad/13.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
+                
+            imagebutton:
+                idle "ui/bad/15.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("kitchen1", transition=Dissolve(0.25)), Show("office1")
+                
+            imagebutton:
+                idle "ui/bad/12.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action ShowMenu('preferences')
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
     
@@ -340,19 +373,52 @@ screen office1():
         #    hovered Play("sound", "audio/button-hover.ogg")
         #    action SetDict(tissuebox_obj, day, True), Jump("tissuebox_obj"+str(day+1))
         
-    vbox:
+    hbox:
         align (0.95, 0.05)
         spacing 20
         
-        textbutton "Go to Kitchen":
-            sensitive (modal_state)
-            hovered Play("sound", "audio/button-hover.ogg")
-            action Hide("office1", transition=Dissolve(0.25)), Show("kitchen1")
-            
-        textbutton "Go to Bedroom":
-            sensitive (modal_state)
-            hovered Play("sound", "audio/button-hover.ogg")
-            action Hide("office1", transition=Dissolve(0.25)), Show("bedroom1")
+        if goodend != -1:
+            imagebutton:
+                idle "ui/16.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("office1", transition=Dissolve(0.25)), Show("kitchen1")
+                
+            imagebutton:
+                idle "ui/15.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("office1", transition=Dissolve(0.25)), Show("bedroom1")
+                
+            imagebutton:
+                idle "ui/14.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action ShowMenu('preferences')
+        else:
+            imagebutton:
+                idle "ui/bad/14.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("office1", transition=Dissolve(0.25)), Show("kitchen1")
+                
+            imagebutton:
+                idle "ui/bad/13.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("office1", transition=Dissolve(0.25)), Show("bedroom1")
+                
+            imagebutton:
+                idle "ui/bad/12.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action ShowMenu('preferences')
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
     
@@ -418,26 +484,52 @@ screen bedroom1():
             hovered Play("sound", "audio/button-hover.ogg")
             action Jump("notebook_obj"+str(day+1))
     
-    vbox:
+    hbox:
         align (0.95, 0.05)
         spacing 20
         
-        textbutton "Go to Kitchen":
-            sensitive (modal_state)
-            hovered Play("sound", "audio/button-hover.ogg")
-            action Hide("bedroom1", transition=Dissolve(0.25)), Show("kitchen1")
+        if goodend != -1:
+            imagebutton:
+                idle "ui/16.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("bedroom1", transition=Dissolve(0.25)), Show("kitchen1")
+                
+            imagebutton:
+                idle "ui/15.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
             
-        textbutton "Go to Office":
-            sensitive (modal_state)
-            hovered Play("sound", "audio/button-hover.ogg")
-            action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
+            imagebutton:
+                idle "ui/14.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action ShowMenu('preferences')
+        else:
+            imagebutton:
+                idle "ui/bad/14.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("bedroom1", transition=Dissolve(0.25)), Show("kitchen1")
+                
+            imagebutton:
+                idle "ui/bad/15.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
             
-    vbox:
-        text "coffee_obj = [coffee_obj]"
-        text "sink_obj = [sink_obj]"
-        text "dogfeeder_obj = [dogfeeder_obj]"
-        text "laptop_obj = [laptop_obj]"
-        text "bookshelf_obj = [bookshelf_obj]"
+            imagebutton:
+                idle "ui/bad/12.png"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action ShowMenu('preferences')
     
     timer timer_length action renpy.restart_interaction repeat True  # 0.01 is ultra smooth, but no button will be hoverable
 
@@ -533,18 +625,50 @@ style frame:
 
 screen say(who, what):
     style_prefix "say"
-
-    window:
-        id "window"
-
+    
+    if goodend != -1:
+        add "ui/normal_textbox.png":
+            yalign 1.0
+            xalign 0.5
+            zoom 0.8
+    else:
+        add "ui/dark_textbox.png":
+            yalign 0.94
+            xalign 0.53
+            zoom 0.8
+    
+    #window:
+    #id "window"
+    
+    if goodend != -1:
         if who is not None:
 
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who"
+                text who id "who":
+                    font "Aller.ttf"
+                    ypos 490 xpos 80
 
-        text what id "what"
+        text what id "what":
+            font "Aller.ttf"
+            ypos 535 xpos 255
+            size 25
+    else:
+        if who is not None:
+
+            window:
+                id "namebox"
+                style "namebox"
+                text who id "who":
+                    font "Aller.ttf"
+                    ypos 488 xpos 80
+
+        text what id "what":
+            font "Aller.ttf"
+            color "#000"
+            ypos 545 xpos 225
+            size 25
 
 
     ## If there's a side image, display it above the text. Do not display on the
@@ -692,15 +816,15 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            #textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            #textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Load") action ShowMenu('load')
-            #textbutton _("Q.Save") action QuickSave()
-            #textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            ##textbutton _("Back") action Rollback()
+            #textbutton _("History") action ShowMenu('history')
+            #textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            ##textbutton _("Auto") action Preference("auto-forward", "toggle")
+            #textbutton _("Save") action ShowMenu('save')
+            #textbutton _("Load") action ShowMenu('load')
+            ##textbutton _("Q.Save") action QuickSave()
+            ##textbutton _("Q.Load") action QuickLoad()
+            #textbutton _("Prefs") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -821,29 +945,65 @@ style navigation_button_text:
 
 screen main_menu():
 
-    ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    add "ui/bedroom_full.png":
+        zoom 0.65
+        xalign 0.5
 
-    ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
-
-    ## The use statement includes another screen inside this one. The actual
-    ## contents of the main menu are in the navigation screen.
-    use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
+    add "ui/title.png":
+        zoom 0.65
+        xalign 0.5
+        
+    vbox:
+        align(0.26, 0.9)
+        spacing 15
+        
+        imagebutton:
+            idle "ui/start.png"
+            
+            activate_sound "audio/button-click.ogg"
+            hovered Play("sound", "audio/button-hover.ogg")
+            action Start()
+            
+        imagebutton:
+            idle "ui/preference.png"
+            
+            activate_sound "audio/button-click.ogg"
+            hovered Play("sound", "audio/button-hover.ogg")
+            action ShowMenu("preferences")
+            
+        imagebutton:
+            idle "ui/help.png"
+            
+            activate_sound "audio/button-click.ogg"
+            hovered Play("sound", "audio/button-hover.ogg")
+            action ShowMenu("help")
+            
+    vbox:
+        align(0.74, 0.9)
+        spacing 15
+        
+        imagebutton:
+            idle "ui/load.png"
+            
+            activate_sound "audio/button-click.ogg"
+            hovered Play("sound", "audio/button-hover.ogg")
+            action ShowMenu("load")
+            
+        imagebutton:
+            idle "ui/about.png"
+            
+            activate_sound "audio/button-click.ogg"
+            hovered Play("sound", "audio/button-hover.ogg")
+            action ShowMenu("about")
+            
+        imagebutton:
+            idle "ui/quit.png"
+            
+            activate_sound "audio/button-click.ogg"
+            hovered Play("sound", "audio/button-hover.ogg")
+            action Quit(confirm=not main_menu)
 
 
 style main_menu_frame is empty
@@ -1026,7 +1186,7 @@ screen about():
         vbox:
 
             label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+            text _("by Super Sikrit Klab Studio!\n")
 
             ## gui.about is usually set in options.rpy.
             if gui.about:
@@ -1899,18 +2059,18 @@ screen quick_menu():
 
     zorder 100
 
-    if quick_menu:
+    #if quick_menu:
 
-        hbox:
-            style_prefix "quick"
+    #    hbox:
+    #        style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
+    #        xalign 0.5
+    #        yalign 1.0
 
-            textbutton _("Back") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Menu") action ShowMenu()
+    #        textbutton _("Back") action Rollback()
+    #        textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+    #        textbutton _("Auto") action Preference("auto-forward", "toggle")
+    #        textbutton _("Menu") action ShowMenu()
 
 
 style window:
