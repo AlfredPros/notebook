@@ -22,32 +22,31 @@ label bedroom_day5:
 
 ## Kitchen objects ##############################################################
 
-label dogfeeder_good_obj5:
+label dogfeeder_obj5:
     $ modal_state = False
-    "I should feed Mocha."
-    menu:
-        "Feed him":
-            $ dogfed += 1
-            play sound dog_food
-            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
-            pause 3
-            "Mocha, It's time to chow down."
-        "Feed him treat":
-            play sound dog_barking
-            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
-            pause 3
-            "He seems to enjoy it."
-    return
-
-label dogfeeder_bad_obj5:
-    "I should feed {b}him{/b}."
-    menu:
-        "Yes":
-            $ dogfed += 1
-            play sound dog_food
-            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
-            pause 3
-            "Mocha, It's time to chow down."
+    if goodend == 1:
+        "I should feed Mocha."
+        menu:
+            "Feed him":
+                $ dogfed += 1
+                play sound dog_food
+                ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+                pause 3
+                "Mocha, It's time to chow down."
+            "Feed him treat":
+                play sound dog_barking
+                ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+                pause 3
+                "He seems to enjoy it."
+    else:
+        "I should feed {b}him{/b}."
+        menu:
+            "Yes":
+                $ dogfed += 1
+                play sound dog_food
+                ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+                pause 3
+                "Mocha, It's time to chow down."
 
     return
 

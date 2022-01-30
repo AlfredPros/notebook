@@ -25,7 +25,8 @@ label bedroom_day3:
         MC "We did it!"
         play sound dog_barking
         "I picked mocha and give him a big hug."
-        scene goodend with Dissolve(2)
+        scene goodend with Dissolve(2):
+            zoom (0.33)
         pause 2
         "Mocha seems excited too, I think he knows that something good happened"
         MC "Good boy!"
@@ -46,7 +47,8 @@ label bedroom_day3:
             "I woke up to a terrifying scene."
             "Something I hoped to be just a mere nightmare."
             "But this isn't just a nightmare, it's a grim reality."
-            scene badend with Dissolve(2)
+            scene badend with Dissolve(2):
+                zoom (0.33)
             MC "Mocha..."
             MC "I-I'm sorry Mocha."
             MC "I didn't fed him, how could I?!"
@@ -65,34 +67,33 @@ label bedroom_day3:
 
 ## Kitchen objects ##############################################################
 
-label dogfeeder_good_obj3:
+label dogfeeder_obj3:
     $ modal_state = False
-    "Mocha's bowl's empty, I should feed him."
-    menu:
-        "Feed him":
-            $ dogfed += 1
-            play sound dog_food
-            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
-            pause 3
-            "Mocha, It's time to chow down."
-        "Don't feed him":
-            play sound dog_food
-            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
-            pause 3
-            "I'll give him the more expensive food."
-    return
-
-label dogfeeder_bad_obj3:
-    "Mocha's bowl's empty, I should feed him."
-    menu:
-        "Yes":
-            $ dogfed += 1
-            play sound dog_food
-            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
-            pause 3
-            "Mocha, It's time to chow down."
-        "No":
-            "I don't think making Mocha obese a good idea."
+    if goodend == 1:
+        "Mocha's bowl's empty, I should feed him."
+        menu:
+            "Feed him":
+                $ dogfed += 1
+                play sound dog_food
+                ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+                pause 3
+                "Mocha, It's time to chow down."
+            "Don't feed him":
+                play sound dog_food
+                ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+                pause 3
+                "I'll give him the more expensive food."
+    else:
+        "Mocha's bowl's empty, I should feed him."
+        menu:
+            "Yes":
+                $ dogfed += 1
+                play sound dog_food
+                ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+                pause 3
+                "Mocha, It's time to chow down."
+            "No":
+                "I don't think making Mocha obese a good idea."
 
     return
 
@@ -236,7 +237,7 @@ label tissuebox_obj3:
             "It's cleaned!"
         "No":
             "It's not that filthy anyway."
-            
+
     window hide Dissolve(0.2)
     $ modal_state = True
     pause

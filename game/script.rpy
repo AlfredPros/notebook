@@ -52,10 +52,10 @@ label start:
     scene black
     with Dissolve(1)
 
-    call prologue
-    call bedroom_day1
+    call prologue from _call_prologue
+    call bedroom_day1 from _call_bedroom_day1
     $ day = 1
-    call bedroom_day2
+    call bedroom_day2 from _call_bedroom_day2
     $ day = 2
     # Decide ending
     python:
@@ -63,12 +63,12 @@ label start:
             goodend = 1
         else:
             goodend = -1
-    call bedroom_day3
+    call bedroom_day3 from _call_bedroom_day3
     $ day = 3
-    call bedroom_day4
+    call bedroom_day4 from _call_bedroom_day4
     $ day = 4
-    call bedroom_day5
-    call end
+    call bedroom_day5 from _call_bedroom_day5
+    call end from _call_end
 
     return
 
