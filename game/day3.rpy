@@ -95,6 +95,9 @@ label dogfeeder_obj3:
             "No":
                 "I don't think making Mocha obese a good idea."
 
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
     return
 
 label knife_obj3:

@@ -47,6 +47,9 @@ label dogfeeder_obj4:
                 pause 3
                 "Mocha, It's time to chow down."
 
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
     return
 
 label plant_obj4:
