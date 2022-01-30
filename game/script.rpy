@@ -2,6 +2,7 @@
 define Mocha = Character("Mocha")
 define N = Character("???")
 define E = Character("Editor")
+define T = Character ("Therapist")
 
 # Kitchen objects
 default book_obj = [False, False, False, False, False]
@@ -28,6 +29,7 @@ default point = 0 #for good and bad points >:(
 default dogfed = 0 #if day 3 player no feed dog for 2 days straight, dog die :( else: dog run
 default goodend = 0 #bruh
 default work = 0
+default dogdie = 0
 
 label splashscreen:
     scene black
@@ -66,6 +68,7 @@ label start:
     call bedroom_day4
     $ day = 4
     call bedroom_day5
+    call end
 
     return
 

@@ -32,8 +32,6 @@ label book_obj2:
             $ point += 1
             "No, I shouldn’t waste time on something trivial."
 
-    "Nyimeng"
-    "[point]"
     window hide Dissolve(0.2)
     $ modal_state = True
     pause
@@ -54,8 +52,7 @@ label dogfeeder_obj2:
         "Don't fill it":
             $ point -= 1
             "I don't want to overfed mocha, he should be fine."
-    "Nyimeng"
-    "[point]"
+
     window hide Dissolve(0.2)
     $ modal_state = True
     pause
@@ -76,8 +73,7 @@ label plant_obj2:
         "Don't water it.":
             $ point -= 1
             "I don't think it's saveable at this point."
-    "Nyimeng"
-    "[point]"
+
     window hide Dissolve(0.2)
     $ modal_state = True
     pause
@@ -150,7 +146,7 @@ label notebook_obj2:
     $ modal_state = False
     window show Dissolve(0.2)
     # Check if all items has been interacted
-    if book_obj[0] == False or plant_obj[0] == False or dogfeeder_obj[0] == False or laptop_obj[0] == False or stationery_obj[0] == False:
+    if book_obj[1] == False or plant_obj[1] == False or dogfeeder_obj[1] == False or laptop_obj[1] == False or stationery_obj[1] == False:
         "There's something I haven't checked yet." # if not all items have been interacted
         window hide Dissolve(0.2)
         $ modal_state = True

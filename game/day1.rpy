@@ -100,7 +100,7 @@ label bookshelf_obj1:
     menu:
         "Yes":
             $ point += 1
-            #sfx cleaning bookshelf pls
+            play sound tidy_the_books
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
             "Everything seems much organized!"

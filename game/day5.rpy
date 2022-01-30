@@ -1,117 +1,259 @@
 label bedroom_day5:
-    #start in bedroom morning
-    "uwu"
-    menu:
-        "Kitchen":
-            jump kitchen_day5
-        "Office":
-            jump office_day5
-    return
 
-label kitchen_day5:
-    # Init coordinate ()
+    pause 2
+    "..."
+
+    if goodend == 1:
+        $ dogfed = 0
+        "I woke up fresh and ready for the day!"
+    else:
+        "I woke up, for some reason my pillow feels a bit damp."
+        "Ew, did I drool again?"
+        "Anyway, I should get ready."
     window hide
     python:
         pos = renpy.get_mouse_pos()
         x_now = pos[0]
         y_now = pos[1]
-    show screen kitchen1 with s_dissolve
+    show screen bedroom1 with s_dissolve
     pause
 
     return
 
-label office_day5:
-    window hide
-
-    python:
-        pos = renpy.get_mouse_pos()
-        x_now = pos[0]
-        y_now = pos[1]
-    show screen office1 with s_dissolve
-    pause
-
-    return
-
-label plants_obj5:
-    menu:
-        "Yes":
-            "uwu"
-        "No":
-            "bad uwu"
-    "Nyimeng"
-    return
+## Kitchen objects ##############################################################
 
 label dogfeeder_good_obj5:
+    $ modal_state = False
+    "I should feed Mocha."
     menu:
-        "Yes":
-            "uwu"
-        "No":
-            "bad uwu"
-    "Nyimeng"
+        "Feed him":
+            $ dogfed += 1
+            play sound dog_food
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            "Mocha, It's time to chow down."
+        "Feed him treat":
+            play sound dog_barking
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            "He seems to enjoy it."
     return
 
 label dogfeeder_bad_obj5:
-    if dogfed >= 2:
-        menu:
-            "Yes":
-                "overfill"
-            "No":
-                "bowl filled"
-    elif dogfed == 1:
-        menu:
-            "Yes":
-                "bowl filled"
-            "No":
-                "empty bowl"
-    else:
-        menu:
-            "Yes":
-                "empty bowl"
-            "No":
-                "empty bowl"
-    "Nyimeng"
-    return
-
-label book_obj5:
+    "I should feed {b}him{/b}."
     menu:
         "Yes":
-            "uwu"
-        "No":
-            "bad uwu"
-    "Nyimeng"
-    "[point]"
+            $ dogfed += 1
+            play sound dog_food
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            "Mocha, It's time to chow down."
+
     return
+
+label plant_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
+    "The plants have seen better days, I should water it."
+    menu:
+        "Water it.":
+            play sound watering_plants
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            "I wonder if the plant will survive."
+        "Don't water it.":
+            "I don't think it's saveable at this point."
+
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
+
+    return
+
+label boquet_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
+    "Huh, it's starting to wit, maybe some more water?"
+    menu:
+        "Yes":
+            play sound watering_plants
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            "I’ll get water for the poor flowers."
+        "No":
+            "I can't be bothered with it."
+
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
+
+    return
+
+label coffee_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
+
+    "A morning warm cup of coffee would be nice."
+    menu:
+        "{b}Drink Coffee{/b}":
+            play sound coffee_machine
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            "Bottoms up!"
+
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
+
+    return with Dissolve(0.2)
+
+label knife_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
+    "I should clean it."
+    menu:
+        "{b}Yes{/b}":
+            play sound water_sink
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            "It's clean!"
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
+
+    return
+
+## Office objects #############################################################
 
 label laptop_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
+    "Maybe I should continue my work?"
     menu:
         "Yes":
-            "uwu"
+            play sound laptop_start
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            if work == 3:
+                $ work = 4
+                "I'm done!"
+                "I just need to submit it."
+                ".{w=0.2}.{w=0.2}.{w=0.2} and done!"
+            elif work == 2:
+                $ work = 3
+                "Just 10 pages to go!"
+            elif work == 1:
+                $ work = 2
+                "Just 25 pages to go!"
+            else:
+                $ work = 1
+                "Great, 50 pages to go!"
         "No":
-            "bad uwu"
-    "Nyimeng"
-    "[point]"
+            "whatever, the deadline is in 2 days anyway."
+
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
+
     return
 
-label stationary_obj5:
+label bookshelf_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
+    "There’s a lot of book here... maybe I should sort it."
     menu:
         "Yes":
-            "uwu"
+            play sound tidy_the_books
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            "Everything seems much organized!"
         "No":
-            "bad uwu"
-    "Nyimeng"
-    "[point]"
+            "I think the book is as organized as it should be."
+
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
+
     return
 
-label dog_obj5:
+label pigura_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
+    #day 3 good end only
+    "A picture of my me and my mom."
+    "I should give her a call when I can."
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
+
+    return
+label tissuebox_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
+    #day 3+ bad end only
+    "I should clean the {b}trash{/b}?"
     menu:
         "Yes":
-            "uwu"
+            ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
+            pause 3
+            "It's all cleaned now."
         "No":
-            "bad uwu"
-    "Nyimeng"
-    "[point]"
+            "It's not that messy, I can let it be for now."
+
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
+
+    return
+
+
+## Bedroom objects ##################################################################
+
+label kaca_obj5:
+    $ modal_state = False
+    window show Dissolve(0.2)
+    "It's you!"  # No need for choice, I think.
+    window hide Dissolve(0.2)
+    $ modal_state = True
+    pause
+
     return
 
 label notebook_obj5:
-    "Dialog"
+    $ modal_state = False
+    window show Dissolve(0.2)
+    # Check if all items has been interacted
+    if goodend == 1:
+        if dogfeeder_good_obj[4] == False or coffee_obj[4] == False or boquet_obj[4] == False or bookshelf_obj[4] == False or laptop_obj[4] == False or pigura_obj[4] == False:
+            "There's something I haven't checked yet." # if not all items have been interacted
+            window hide Dissolve(0.2)
+            $ modal_state = True
+            pause
+        else:
+            "Let's see what I've done today..."  # if all items have been interacted
+            window hide Dissolve(0.2)
+            $ modal_state = True
+
+            hide screen bedroom1
+            scene black
+            with dissolve
+
+            pause 0.5
+    else:
+        if knife_obj[4] == False or plant_obj[4] == False or dogfeeder_bad_obj[4] == False or laptop_obj[4] == False or tissuebox_obj[4] == False or bookshelf_obj[4] == False:
+            "There's something I haven't checked yet." # if not all items have been interacted
+            window hide Dissolve(0.2)
+            $ modal_state = True
+            pause
+        else:
+            "Let's see what I've done today..."  # if all items have been interacted
+            window hide Dissolve(0.2)
+            $ modal_state = True
+
+            hide screen bedroom1
+            scene black
+            with dissolve
+
+            pause 0.5
+
     return

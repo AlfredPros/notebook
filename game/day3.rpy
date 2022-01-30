@@ -6,9 +6,8 @@ label bedroom_day3:
 
     menu:
         "Yes, I could get more work done faster.":
-            $ point += 1
+            "Alright, Let's get up."
         "I'll just wait for the alarm.":
-            $ point -= 1
             ".{w=0.2}.{w=0.2}.{w=0.2}"
 
     if goodend == 1:
@@ -43,6 +42,7 @@ label bedroom_day3:
             "It seems Mocha went through the pet door."
             "I hope he'll be back soon..."
         else:
+            $ dogdie = 1
             "I woke up to a terrifying scene."
             "Something I hoped to be just a mere nightmare."
             "But this isn't just a nightmare, it's a grim reality."
@@ -99,7 +99,7 @@ label dogfeeder_bad_obj3:
 label knife_obj3:
     $ modal_state = False
     window show Dissolve(0.2)
-    "I should clean it."
+    "I should {b}clean{/b} it."
     menu:
         "{b}Yes{/b}":
             play sound water_sink
@@ -217,8 +217,7 @@ label tissue_obj3:
             "It's all cleaned now."
         "No":
             "It's not that messy, I can let it be for now."
-    "Nyimeng"
-    "[point]"
+
     window hide Dissolve(0.2)
     $ modal_state = True
     pause
@@ -237,8 +236,7 @@ label tissuebox_obj3:
             "It's cleaned!"
         "No":
             "It's not that filthy anyway."
-    "Nyimeng"
-    "[point]"
+            
     window hide Dissolve(0.2)
     $ modal_state = True
     pause
@@ -260,7 +258,7 @@ label notebook_obj3:
     window show Dissolve(0.2)
     # Check if all items has been interacted
     if goodend == 1:
-        if dogfeeder_good_obj[0] == False or plant_obj[0] == False or boquet_obj[0] == False or laptop_obj[0] == False or stationery_obj[0] == False or pigura_obj[0] == False:
+        if dogfeeder_good_obj[2] == False or plant_obj[2] == False or boquet_obj[2] == False or laptop_obj[2] == False or stationery_obj[2] == False or pigura_obj[2] == False:
             "There's something I haven't checked yet." # if not all items have been interacted
             window hide Dissolve(0.2)
             $ modal_state = True
@@ -276,7 +274,7 @@ label notebook_obj3:
 
             pause 0.5
     else:
-        if knife_obj[0] == False or plant_obj[0] == False or dogfeeder_obj[0] == False or laptop_obj[0] == False or tissue_obj[0] == False or tissuebox_obj[0] == False:
+        if knife_obj[2] == False or plant_obj[2] == False or dogfeeder_bad_obj[2] == False or laptop_obj[2] == False or tissue_obj[2] == False or tissuebox_obj[2] == False:
             "There's something I haven't checked yet." # if not all items have been interacted
             window hide Dissolve(0.2)
             $ modal_state = True
