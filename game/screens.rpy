@@ -661,7 +661,7 @@ screen say(who, what):
                 style "namebox"
                 text who id "who":
                     font "Aller.ttf"
-                    ypos 490 xpos 80
+                    ypos 490 xpos 75
 
         text what id "what":
             font "Aller.ttf"
@@ -675,7 +675,7 @@ screen say(who, what):
                 style "namebox"
                 text who id "who":
                     font "Aller.ttf"
-                    ypos 488 xpos 80
+                    ypos 488 xpos 75
 
         text what id "what":
             font "Aller.ttf"
