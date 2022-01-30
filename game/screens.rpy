@@ -54,25 +54,24 @@ screen kitchen1():
             pos(-(x_now/hover_mult), -(y_now/hover_mult))
     
     # Book
-    if day == 1:
-        if goodend != -1:
-            imagebutton at bg_scale:
-                pos(int(1705*bg_scale_const)-(x_now/hover_mult), int(197*bg_scale_const)-(y_now/hover_mult))  # 1705, 197
-                idle "kitchen/book.png"
-                hover "kitchen/book_outline.png"
-                sensitive (modal_state and book_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(book_obj, day, True), Jump("book_obj"+str(day+1))
-        else:
-            imagebutton at bg_scale:
-                pos(int(1649*bg_scale_const)-(x_now/hover_mult), int(74*bg_scale_const)-(y_now/hover_mult))  # 1649, 74
-                idle "kitchen/bad/book.png"
-                hover "kitchen/bad/book_outline.png"
-                sensitive (modal_state and book_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(book_obj, day, True), Jump("book_obj"+str(day+1))
+    if goodend != -1:
+        imagebutton at bg_scale:
+            pos(int(1705*bg_scale_const)-(x_now/hover_mult), int(197*bg_scale_const)-(y_now/hover_mult))  # 1705, 197
+            idle "kitchen/book.png"
+            hover "kitchen/book_outline.png"
+            sensitive (modal_state and book_obj[day] == False and day == 1)
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(book_obj, day, True), Jump("book_obj"+str(day+1))
+    else:
+        imagebutton at bg_scale:
+            pos(int(1649*bg_scale_const)-(x_now/hover_mult), int(74*bg_scale_const)-(y_now/hover_mult))  # 1649, 74
+            idle "kitchen/bad/book.png"
+            hover "kitchen/bad/book_outline.png"
+            sensitive (modal_state and book_obj[day] == False and day == 1)
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(book_obj, day, True), Jump("book_obj"+str(day+1))
     
     # Boquet
     if goodend == 1 and (day == 2 or day == 3 or day == 4):
@@ -86,25 +85,24 @@ screen kitchen1():
             action SetDict(boquet_obj, day, True), Jump("boquet_obj"+str(day+1))
         
     # Coffee Machine
-    if day == 0 or (goodend == -1 and day == 3) or (goodend == 1 and day == 4):
-        if goodend != -1:
-            imagebutton at bg_scale:
-                pos(int(641*bg_scale_const)-(x_now/hover_mult), int(507*bg_scale_const)-(y_now/hover_mult))  # 641, 507
-                idle "kitchen/coffee_machine.png"
-                hover "kitchen/coffee_machine_outline.png"
-                sensitive (modal_state and coffee_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(coffee_obj, day, True), Jump("coffee_obj"+str(day+1))
-        else:
-            imagebutton at bg_scale:
-                pos(int(610*bg_scale_const)-(x_now/hover_mult), int(454*bg_scale_const)-(y_now/hover_mult))  # 610, 454
-                idle "kitchen/bad/coffee.png"
-                hover "kitchen/bad/coffee_outline.png"
-                sensitive (modal_state and coffee_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(coffee_obj, day, True), Jump("coffee_obj"+str(day+1))
+    if goodend != -1:
+        imagebutton at bg_scale:
+            pos(int(641*bg_scale_const)-(x_now/hover_mult), int(507*bg_scale_const)-(y_now/hover_mult))  # 641, 507
+            idle "kitchen/coffee_machine.png"
+            hover "kitchen/coffee_machine_outline.png"
+            sensitive (modal_state and coffee_obj[day] == False and (day == 0 or (goodend == -1 and day == 3) or (goodend == 1 and day == 4)))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(coffee_obj, day, True), Jump("coffee_obj"+str(day+1))
+    else:
+        imagebutton at bg_scale:
+            pos(int(610*bg_scale_const)-(x_now/hover_mult), int(454*bg_scale_const)-(y_now/hover_mult))  # 610, 454
+            idle "kitchen/bad/coffee.png"
+            hover "kitchen/bad/coffee_outline.png"
+            sensitive (modal_state and coffee_obj[day] == False and (day == 0 or (goodend == -1 and day == 3) or (goodend == 1 and day == 4)))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(coffee_obj, day, True), Jump("coffee_obj"+str(day+1))
         
     # Dog Feeder
     if goodend != -1:
@@ -167,46 +165,44 @@ screen kitchen1():
         #    action SetDict(knife_obj, day, True), Jump("knife_obj"+str(day+1))
         
     # Plant
-    if day == 1 or day == 2 or (goodend == -1 and day == 3) or (goodend == -1 and day == 4):
-        if goodend != -1:
-            imagebutton at bg_scale:
-                pos(int(813*bg_scale_const)-(x_now/hover_mult), int(71*bg_scale_const)-(y_now/hover_mult))  # 813, 71
-                idle "kitchen/plant.png"
-                hover "kitchen/plant_outline.png"
-                sensitive (modal_state and plant_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(plant_obj, day, True), Jump("plant_obj"+str(day+1))
-        else:
-            imagebutton at bg_scale:
-                pos(int(754*bg_scale_const)-(x_now/hover_mult), int(58*bg_scale_const)-(y_now/hover_mult))  # 754, 58
-                idle "kitchen/bad/plant.png"
-                hover "kitchen/bad/plant_outline.png"
-                sensitive (modal_state and plant_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(plant_obj, day, True), Jump("plant_obj"+str(day+1))
+    if goodend != -1:
+        imagebutton at bg_scale:
+            pos(int(813*bg_scale_const)-(x_now/hover_mult), int(71*bg_scale_const)-(y_now/hover_mult))  # 813, 71
+            idle "kitchen/plant.png"
+            hover "kitchen/plant_outline.png"
+            sensitive (modal_state and plant_obj[day] == False and (day == 1 or day == 2 or (goodend == -1 and day == 3) or (goodend == -1 and day == 4)))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(plant_obj, day, True), Jump("plant_obj"+str(day+1))
+    else:
+        imagebutton at bg_scale:
+            pos(int(754*bg_scale_const)-(x_now/hover_mult), int(58*bg_scale_const)-(y_now/hover_mult))  # 754, 58
+            idle "kitchen/bad/plant.png"
+            hover "kitchen/bad/plant_outline.png"
+            sensitive (modal_state and plant_obj[day] == False and (day == 1 or day == 2 or (goodend == -1 and day == 3) or (goodend == -1 and day == 4)))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(plant_obj, day, True), Jump("plant_obj"+str(day+1))
         
     # Sink
-    if day == 0 or (goodend == 1 and day == 3):
-        if goodend != -1:
-            imagebutton at bg_scale:
-                pos(int(1253*bg_scale_const)-(x_now/hover_mult), int(605*bg_scale_const)-(y_now/hover_mult))  # 1253, 605
-                idle "kitchen/sink.png"
-                hover "kitchen/sink_outline.png"
-                sensitive (modal_state and sink_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(sink_obj, day, True), Jump("sink_obj"+str(day+1))
-        else:
-            imagebutton at bg_scale:
-                pos(int(1227*bg_scale_const)-(x_now/hover_mult), int(561*bg_scale_const)-(y_now/hover_mult))  # 1227, 561
-                idle "kitchen/bad/sink.png"
-                hover "kitchen/bad/sink_outline.png"
-                sensitive (modal_state and sink_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(sink_obj, day, True), Jump("sink_obj"+str(day+1))
+    if goodend != -1:
+        imagebutton at bg_scale:
+            pos(int(1253*bg_scale_const)-(x_now/hover_mult), int(605*bg_scale_const)-(y_now/hover_mult))  # 1253, 605
+            idle "kitchen/sink.png"
+            hover "kitchen/sink_outline.png"
+            sensitive (modal_state and sink_obj[day] == False and (day == 0 or (goodend == 1 and day == 3)))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(sink_obj, day, True), Jump("sink_obj"+str(day+1))
+    else:
+        imagebutton at bg_scale:
+            pos(int(1227*bg_scale_const)-(x_now/hover_mult), int(561*bg_scale_const)-(y_now/hover_mult))  # 1227, 561
+            idle "kitchen/bad/sink.png"
+            hover "kitchen/bad/sink_outline.png"
+            sensitive (modal_state and sink_obj[day] == False and (day == 0 or (goodend == 1 and day == 3)))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(sink_obj, day, True), Jump("sink_obj"+str(day+1))
         
     hbox:
         align (0.95, 0.05)
@@ -280,46 +276,44 @@ screen office1():
             pos(-(x_now/hover_mult), -(y_now/hover_mult))
         
     # Bookshelf
-    if day == 0 or (day == 3 and goodend == 1) or day == 4:
-        if goodend != -1:
-            imagebutton at bg_scale:
-                pos(int(7*bg_scale_const)-(x_now/hover_mult), int(55*bg_scale_const)-(y_now/hover_mult))  # 7, 55
-                idle "office/bookshelf.png"
-                hover "office/bookshelf_outline.png"
-                sensitive (modal_state and bookshelf_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(bookshelf_obj, day, True), Jump("bookshelf_obj"+str(day+1))
-        else:
-            imagebutton at bg_scale:
-                pos(int(7*bg_scale_const)-(x_now/hover_mult), int(55*bg_scale_const)-(y_now/hover_mult))  # 56, 40
-                idle "office/bad/bookshelf.png"
-                hover "office/bad/bookshelf_outline.png"
-                sensitive (modal_state and bookshelf_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(bookshelf_obj, day, True), Jump("bookshelf_obj"+str(day+1))
+    if goodend != -1:
+        imagebutton at bg_scale:
+            pos(int(7*bg_scale_const)-(x_now/hover_mult), int(55*bg_scale_const)-(y_now/hover_mult))  # 7, 55
+            idle "office/bookshelf.png"
+            hover "office/bookshelf_outline.png"
+            sensitive (modal_state and bookshelf_obj[day] == False and (day == 0 or (day == 3 and goodend == 1) or day == 4))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(bookshelf_obj, day, True), Jump("bookshelf_obj"+str(day+1))
+    else:
+        imagebutton at bg_scale:
+            pos(int(7*bg_scale_const)-(x_now/hover_mult), int(55*bg_scale_const)-(y_now/hover_mult))  # 56, 40
+            idle "office/bad/bookshelf.png"
+            hover "office/bad/bookshelf_outline.png"
+            sensitive (modal_state and bookshelf_obj[day] == False and (day == 0 or (day == 3 and goodend == 1) or day == 4))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(bookshelf_obj, day, True), Jump("bookshelf_obj"+str(day+1))
     
     # Laptop
-    if day == 0 or day == 1 or day == 2 or (goodend == -1 and day == 3) or day == 4:
-        if goodend != -1:
-            imagebutton at bg_scale:
-                pos(int(1475*bg_scale_const)-(x_now/hover_mult), int(670*bg_scale_const)-(y_now/hover_mult))  # 1475, 670
-                idle "office/laptop.png"
-                hover "office/laptop_outline.png"
-                sensitive (modal_state and laptop_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(laptop_obj, day, True), Jump("laptop_obj"+str(day+1))
-        else:
-            imagebutton at bg_scale:
-                pos(int(1449*bg_scale_const)-(x_now/hover_mult), int(603*bg_scale_const)-(y_now/hover_mult))  # 1449, 603
-                idle "office/bad/laptop.png"
-                hover "office/bad/laptop_outline.png"
-                sensitive (modal_state and laptop_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(laptop_obj, day, True), Jump("laptop_obj"+str(day+1))
+    if goodend != -1:
+        imagebutton at bg_scale:
+            pos(int(1475*bg_scale_const)-(x_now/hover_mult), int(670*bg_scale_const)-(y_now/hover_mult))  # 1475, 670
+            idle "office/laptop.png"
+            hover "office/laptop_outline.png"
+            sensitive (modal_state and laptop_obj[day] == False and (day == 0 or day == 1 or day == 2 or (goodend == -1 and day == 3) or day == 4))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(laptop_obj, day, True), Jump("laptop_obj"+str(day+1))
+    else:
+        imagebutton at bg_scale:
+            pos(int(1449*bg_scale_const)-(x_now/hover_mult), int(603*bg_scale_const)-(y_now/hover_mult))  # 1449, 603
+            idle "office/bad/laptop.png"
+            hover "office/bad/laptop_outline.png"
+            sensitive (modal_state and laptop_obj[day] == False and (day == 0 or day == 1 or day == 2 or (goodend == -1 and day == 3) or day == 4))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(laptop_obj, day, True), Jump("laptop_obj"+str(day+1))
         
     # Pigura
     if goodend == 1 and (day == 2 or day == 3 or day == 4):
@@ -333,25 +327,24 @@ screen office1():
             action SetDict(pigura_obj, day, True), Jump("pigura_obj"+str(day+1))
         
     # Stationery
-    if day == 1 or (goodend == 1 and day == 2) or day == 3:
-        if goodend != -1:
-            imagebutton at bg_scale:
-                pos(int(1419*bg_scale_const)-(x_now/hover_mult), int(470*bg_scale_const)-(y_now/hover_mult))  # 1419, 470  
-                idle "office/stationery.png"
-                hover "office/stationery_outline.png"
-                sensitive (modal_state and stationery_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(stationery_obj, day, True), Jump("stationery_obj"+str(day+1))
-        else:
-            imagebutton at bg_scale:
-                pos(int(1372*bg_scale_const)-(x_now/hover_mult), int(436*bg_scale_const)-(y_now/hover_mult))  # 1372, 436  
-                idle "office/bad/stationery.png"
-                hover "office/bad/stationery_outline.png"
-                sensitive (modal_state and stationery_obj[day] == False)
-                
-                hovered Play("sound", "audio/button-hover.ogg")
-                action SetDict(stationery_obj, day, True), Jump("stationery_obj"+str(day+1))
+    if goodend != -1:
+        imagebutton at bg_scale:
+            pos(int(1419*bg_scale_const)-(x_now/hover_mult), int(470*bg_scale_const)-(y_now/hover_mult))  # 1419, 470  
+            idle "office/stationery.png"
+            hover "office/stationery_outline.png"
+            sensitive (modal_state and stationery_obj[day] == False and (day == 1 or (goodend == 1 and day == 2) or day == 3))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(stationery_obj, day, True), Jump("stationery_obj"+str(day+1))
+    else:
+        imagebutton at bg_scale:
+            pos(int(1372*bg_scale_const)-(x_now/hover_mult), int(436*bg_scale_const)-(y_now/hover_mult))  # 1372, 436  
+            idle "office/bad/stationery.png"
+            hover "office/bad/stationery_outline.png"
+            sensitive (modal_state and stationery_obj[day] == False and (day == 1 or (goodend == 1 and day == 2) or day == 3))
+            
+            hovered Play("sound", "audio/button-hover.ogg")
+            action SetDict(stationery_obj, day, True), Jump("stationery_obj"+str(day+1))
         
     # Tissue
     if goodend == -1 and (day == 2 or day == 3):
