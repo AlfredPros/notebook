@@ -10,6 +10,22 @@ define s_dissolve = { "screens" : Dissolve(0.25) }
 define bg_scale_const = 0.71
 define timer_length = 0.03
 
+image house_hover = im.MatrixColor("ui/14.png", im.matrix.brightness(0.1))
+image bedroom_hover = im.MatrixColor("ui/15.png", im.matrix.brightness(0.1))
+image kitchen_hover = im.MatrixColor("ui/16.png", im.matrix.brightness(0.1))
+image office_hover = im.MatrixColor("ui/17.png", im.matrix.brightness(0.1))
+image bedroom_insensitive = im.MatrixColor("ui/15.png", im.matrix.brightness(-0.25))
+image kitchen_insensitive = im.MatrixColor("ui/16.png", im.matrix.brightness(-0.25))
+image office_insensitive = im.MatrixColor("ui/17.png", im.matrix.brightness(-0.25))
+
+image bad_house_hover = im.MatrixColor("ui/bad/12.png", im.matrix.brightness(-0.1))
+image bad_bedroom_hover = im.MatrixColor("ui/bad/13.png", im.matrix.brightness(-0.1))
+image bad_kitchen_hover = im.MatrixColor("ui/bad/14.png", im.matrix.brightness(-0.1))
+image bad_office_hover = im.MatrixColor("ui/bad/15.png", im.matrix.brightness(-0.1))
+image bad_bedroom_insensitive = im.MatrixColor("ui/bad/13.png", im.matrix.brightness(-0.25))
+image bad_kitchen_insensitive = im.MatrixColor("ui/bad/14.png", im.matrix.brightness(-0.25))
+image bad_office_insensitive = im.MatrixColor("ui/bad/15.png", im.matrix.brightness(-0.25))
+
 ################################################################################
 ## Transforms
 ################################################################################
@@ -209,43 +225,62 @@ screen kitchen1():
         spacing 20
         
         if goodend != -1:
-            imagebutton:
-                idle "ui/15.png"
-                
-                sensitive (modal_state)
-                hovered Play("sound", "audio/button-hover.ogg")
-                action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
-                
+            
             imagebutton:
                 idle "ui/17.png"
+                hover "office_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
                 action Hide("kitchen1", transition=Dissolve(0.25)), Show("office1")
                 
             imagebutton:
+                idle "kitchen_insensitive"
+                
+                action NullAction()
+            
+            imagebutton:
+                idle "ui/15.png"
+                hover "bedroom_hover"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
+                
+            imagebutton:
                 idle "ui/14.png"
+                hover "house_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
                 action ShowMenu('preferences')
+                
         else:
-            imagebutton:
-                idle "ui/bad/13.png"
-                
-                sensitive (modal_state)
-                hovered Play("sound", "audio/button-hover.ogg")
-                action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
-                
+            
             imagebutton:
                 idle "ui/bad/15.png"
+                hover "bad_office_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
                 action Hide("kitchen1", transition=Dissolve(0.25)), Show("office1")
                 
             imagebutton:
+                idle "bad_kitchen_insensitive"
+                
+                action NullAction()
+                
+            imagebutton:
+                idle "ui/bad/13.png"
+                hover "bad_bedroom_hover"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("kitchen1", transition=Dissolve(0.25)), Show("bedroom1")
+                
+            imagebutton:
                 idle "ui/bad/12.png"
+                hover "bad_house_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
@@ -392,7 +427,13 @@ screen office1():
         
         if goodend != -1:
             imagebutton:
+                idle "office_insensitive"
+                
+                action NullAction()
+            
+            imagebutton:
                 idle "ui/16.png"
+                hover "kitchen_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
@@ -400,6 +441,7 @@ screen office1():
                 
             imagebutton:
                 idle "ui/15.png"
+                hover "bedroom_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
@@ -407,13 +449,20 @@ screen office1():
                 
             imagebutton:
                 idle "ui/14.png"
+                hover "house_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
                 action ShowMenu('preferences')
         else:
             imagebutton:
+                idle "bad_office_insensitive"
+                
+                action NullAction()
+            
+            imagebutton:
                 idle "ui/bad/14.png"
+                hover "bad_kitchen_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
@@ -421,6 +470,7 @@ screen office1():
                 
             imagebutton:
                 idle "ui/bad/13.png"
+                hover "bad_bedroom_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
@@ -428,6 +478,7 @@ screen office1():
                 
             imagebutton:
                 idle "ui/bad/12.png"
+                hover "bad_house_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
@@ -502,43 +553,61 @@ screen bedroom1():
         spacing 20
         
         if goodend != -1:
+                
+            imagebutton:
+                idle "ui/17.png"
+                hover "office_hover"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
+                
             imagebutton:
                 idle "ui/16.png"
+                hover "kitchen_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
                 action Hide("bedroom1", transition=Dissolve(0.25)), Show("kitchen1")
                 
             imagebutton:
-                idle "ui/17.png"
+                idle "bedroom_insensitive"
                 
-                sensitive (modal_state)
-                hovered Play("sound", "audio/button-hover.ogg")
-                action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
+                action NullAction()
             
             imagebutton:
                 idle "ui/14.png"
+                hover "house_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
                 action ShowMenu('preferences')
         else:
+                
+            imagebutton:
+                idle "ui/bad/15.png"
+                hover "bad_office_hover"
+                
+                sensitive (modal_state)
+                hovered Play("sound", "audio/button-hover.ogg")
+                action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
+                
             imagebutton:
                 idle "ui/bad/14.png"
+                hover "bad_kitchen_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
                 action Hide("bedroom1", transition=Dissolve(0.25)), Show("kitchen1")
                 
             imagebutton:
-                idle "ui/bad/15.png"
+                idle "bad_bedroom_insensitive"
                 
-                sensitive (modal_state)
-                hovered Play("sound", "audio/button-hover.ogg")
-                action Hide("bedroom1", transition=Dissolve(0.25)), Show("office1")
+                action NullAction()
             
             imagebutton:
                 idle "ui/bad/12.png"
+                hover "bad_house_hover"
                 
                 sensitive (modal_state)
                 hovered Play("sound", "audio/button-hover.ogg")
