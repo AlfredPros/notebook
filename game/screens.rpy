@@ -26,6 +26,13 @@ image bad_bedroom_insensitive = im.MatrixColor("ui/bad/13.png", im.matrix.bright
 image bad_kitchen_insensitive = im.MatrixColor("ui/bad/14.png", im.matrix.brightness(-0.25))
 image bad_office_insensitive = im.MatrixColor("ui/bad/15.png", im.matrix.brightness(-0.25))
 
+image about_hover = im.MatrixColor("ui/about.png", im.matrix.brightness(0.1))
+image help_hover = im.MatrixColor("ui/help.png", im.matrix.brightness(0.1))
+image load_hover = im.MatrixColor("ui/load.png", im.matrix.brightness(0.1))
+image preferences_hover = im.MatrixColor("ui/preference.png", im.matrix.brightness(0.1))
+image quit_hover = im.MatrixColor("ui/quit.png", im.matrix.brightness(0.1))
+image start_hover = im.MatrixColor("ui/start.png", im.matrix.brightness(0.1))
+
 ################################################################################
 ## Transforms
 ################################################################################
@@ -35,6 +42,10 @@ transform door:
     
 transform bg_scale:
     zoom bg_scale_const
+    
+transform dissolve_out:
+    alpha 1.0
+    easein 0.25 alpha 0.0
 
 
 ################################################################################
@@ -1043,6 +1054,7 @@ screen main_menu():
         
         imagebutton:
             idle "ui/start.png"
+            hover "start_hover"
             
             activate_sound "audio/button-click.ogg"
             hovered Play("sound", "audio/button-hover.ogg")
@@ -1050,6 +1062,7 @@ screen main_menu():
             
         imagebutton:
             idle "ui/preference.png"
+            hover "preferences_hover"
             
             activate_sound "audio/button-click.ogg"
             hovered Play("sound", "audio/button-hover.ogg")
@@ -1057,6 +1070,7 @@ screen main_menu():
             
         imagebutton:
             idle "ui/help.png"
+            hover "help_hover"
             
             activate_sound "audio/button-click.ogg"
             hovered Play("sound", "audio/button-hover.ogg")
@@ -1068,6 +1082,7 @@ screen main_menu():
         
         imagebutton:
             idle "ui/load.png"
+            hover "load_hover"
             
             activate_sound "audio/button-click.ogg"
             hovered Play("sound", "audio/button-hover.ogg")
@@ -1075,6 +1090,7 @@ screen main_menu():
             
         imagebutton:
             idle "ui/about.png"
+            hover "about_hover"
             
             activate_sound "audio/button-click.ogg"
             hovered Play("sound", "audio/button-hover.ogg")
@@ -1082,10 +1098,13 @@ screen main_menu():
             
         imagebutton:
             idle "ui/quit.png"
+            hover "quit_hover"
             
             activate_sound "audio/button-click.ogg"
             hovered Play("sound", "audio/button-hover.ogg")
             action Quit(confirm=not main_menu)
+            
+    add "black" at dissolve_out
 
 
 style main_menu_frame is empty

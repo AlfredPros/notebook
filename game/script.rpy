@@ -34,15 +34,19 @@ default dogdie = 0
 label splashscreen:
     scene black
     pause 1
-    show text "{size=+20}Supar Sikrit Klab Presents{/size}" with dissolve
+    show text "{size=+20}Supar Sikrit Klab Presents{/size}" with Dissolve(0.75)
     pause 2
-    hide text with dissolve
+    hide text with Dissolve(1)
     pause 1
-    show text "{size=+50}Notebook{/size}" with dissolve
-    pause 4
-    show text "{size=+5}Warning, the following content and game contains scenes of disturbing nature, act, and in-game scenes. All the characters, art, storylines depicted in this game are purely the work of fiction, any similarity to the real world are purely coincidental. Players discretion is advised.{/size}" with dissolve
+    #show text "{size=+50}Notebook{/size}" with dissolve
+    show image "ui/title.png" with Dissolve(1.5):
+        zoom 0.75 align(0.5, -0.25)
+    pause 3
+    hide image "ui/title.png" with Dissolve(1.5)
+    pause 1
+    show text "{size=+5}Warning, the following content and game contains scenes of disturbing nature, act, and in-game scenes. All the characters, art, storylines depicted in this game are purely the work of fiction, any similarity to the real world are purely coincidental. Players discretion is advised.{/size}" with Dissolve(0.75)
     pause 10
-    hide text with dissolve
+    hide text with Dissolve(1)
     pause 1
 
     return
