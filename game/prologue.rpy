@@ -1,9 +1,15 @@
 #sum extra dialgoue hinting mc isn't so healthy after all
 label prologue:
-    N "I see, in any case, please do be careful."
-    "I don't need them to tell me that."
-    N "I'll see you next week."
-    MC "Yeah, sure."
-    "I don't like visiting them, but I guess I have to."
+    T "You have schizophrenia, you really should take care of yourself."
+    T "'A healthy body is a healthy mind', after all."
+    "Bullshit, I know I'm healthy."
+    MC "You don't get to tell me, I know that I'm healthy."
+    MC "As you can see, Mocha is healthy."
+    T "Just because your dog is healthy doesn't mean that you are."
+    T "Truth is, you have a problem, and it'll get worse if you don't improve yourself."
+    MC "Screw you, I know my body better than you do!"
+    "After what felt like hours, the visit is over."
+    T "Well then, I suppose I'll check on you again in five days, please be sure to keep a clean enviroment and healthy lifestyle."
+    MC "Sure, whatever."
     pause 2
     return

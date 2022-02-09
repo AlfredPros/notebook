@@ -30,6 +30,7 @@ default dogfed = 0 #if day 3 player no feed dog for 2 days straight, dog die :( 
 default goodend = 0 #bruh
 default work = 0
 default dogdie = 0
+default sleep1 = 0
 
 label splashscreen:
     scene black

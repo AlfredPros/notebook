@@ -84,7 +84,7 @@ label dogfeeder_obj3:
                 pause 3
                 "I'll give him the more expensive food."
     else:
-        "Mocha's bowl's empty, I should feed him."
+        "Mocha's bowl is empty, I should feed him."
         menu:
             "Yes":
                 $ dogfed += 1
@@ -92,8 +92,6 @@ label dogfeeder_obj3:
                 ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
                 pause 3
                 "Mocha, It's time to chow down."
-            "No":
-                "I don't think making Mocha obese a good idea."
 
     window hide Dissolve(0.2)
     $ modal_state = True

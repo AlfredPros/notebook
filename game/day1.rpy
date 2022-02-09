@@ -9,11 +9,24 @@ label bedroom_day1:
     menu:
         "Yes, I could get more work done faster.":
             $ point += 1
-        "Maybe 5 more minutes..":
+            $ sleep1 = 1
+        "I'll sleep some more.":
             $ point -= 1
-            ".{w=0.2}.{w=0.2}.{w=0.2}"
-            "I've definitely slept well over 5 minutes."
+            "Right before I went back to sleep I heard my phone rings."
+            #sfx phone lmao
+            "I picked up my phone, it's the editor."
+            E "Hello, have you heard the company's news?"
+            MC "What news?"
+            E "Your work has been nominated for the best seller award."
+            MC "Oh, thankyou for telling me!"
+            MC "That's very surprising."
+            E "Well, you'll still have to wait if you actually get the award though."
+            MC "Alright, please do inform me when the result is out."
+            E "Sure, for now you should finish your current project since the deadline is in 5 days."
+            MC "I'll be sure to finish it as soon as possible."
+            "With that I hang up on him and prepare my day."
 
+    "Well then, I should do the {color=#FDE992}dishes{/color}, {color=#FDE992}feed Mocha{/color}, maybe get myself a cup of {color=#FDE992}coffee{/color}, tidy up my {color=#FDE992}bookshelf{/color}, and do my work on my {color=#FDE992}laptop{/color}"
     window hide
 
     python:
@@ -126,8 +139,9 @@ label laptop_obj1:
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
             "Great, 50 pages to go!"
-            "Huh, a new email?"
-            "It's from... The editor... My book could be bestseller? What a joke."
+            if sleep1 == 1:
+                "Huh, a new email?"
+                "It's from... The editor... My book could be bestseller? What a joke."
         "No":
             $ point -= 1
             "Whatever, the deadline is 5 more days anyway"

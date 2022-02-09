@@ -13,7 +13,7 @@ label end:
     else:
         T "His condition is worsen, I'm not quite sure what happened."
         if dogdie == 1:
-            T "I think when his pet die it made him completely snapped."
+            T "I think when his pet died it made him completely snapped."
         else:
             T "I think when his pet ran away it made him completely snapped."
         T "He began to feed his 'dog' when he isn't there anymore"
