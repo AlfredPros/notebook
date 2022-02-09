@@ -15,16 +15,13 @@ label bedroom_day1:
             "Right before I went back to sleep I heard my phone rings."
             #sfx phone lmao
             "I picked up my phone, it's the editor."
-            E "Hello, have you heard the company's news?"
-            MC "What news?"
-            E "Your work has been nominated for the best seller award."
+            E "Hello, I just wanna let you know that your work has been nominated for the best seller award."
             MC "Oh, thankyou for telling me!"
             MC "That's very surprising."
-            E "Well, you'll still have to wait if you actually get the award though."
-            MC "Alright, please do inform me when the result is out."
-            E "Sure, for now you should finish your current project since the deadline is in 5 days."
+            E "For now you should finish your current project since the deadline is in {color=#FDE992}5 days{/color}."
             MC "I'll be sure to finish it as soon as possible."
             "With that I hang up on him and prepare my day."
+            #beep phone hang up sfx pls
 
     "Well then, I should do the {color=#FDE992}dishes{/color}, {color=#FDE992}feed Mocha{/color}, maybe get myself a cup of {color=#FDE992}coffee{/color}, tidy up my {color=#FDE992}bookshelf{/color}, and do my work on my {color=#FDE992}laptop{/color}"
     window hide
