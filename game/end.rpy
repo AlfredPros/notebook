@@ -9,7 +9,9 @@ label end:
         T "You're welcome."
         window hide
         pause 2
-        "Good End"
+        show text "{size=56}Good End{/size}" with Dissolve(1)
+        pause
+        
     else:
         T "His condition is worsen, I'm not quite sure what happened."
         if dogdie == 1:
@@ -21,6 +23,8 @@ label end:
         T "Now, what should I do."
         window hide
         pause 2
-        "Bad End"
+        show text "{size=56}Bad End{/size}" with Dissolve(1)
+    pause
+    hide text with Dissolve(0.8)
     pause 2
     return

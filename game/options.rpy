@@ -14,6 +14,8 @@ define config.exit_yesno_transition = Dissolve(.125)
 define config.skip_sounds = True
 default preferences.gl_powersave = False  # True if you're conservative on battery
 
+define config.allow_skipping = False
+
 
 ## Basics ######################################################################
 
