@@ -24,6 +24,9 @@ label bedroom_day1:
             #beep phone hang up sfx pls
 
     "Well then, I should do the {color=#FDE992}dishes{/color}, {color=#FDE992}feed Mocha{/color}, maybe get myself a cup of {color=#FDE992}coffee{/color}, tidy up my {color=#FDE992}bookshelf{/color}, and do my work on my {color=#FDE992}laptop{/color}"
+    show tutorial with Dissolve(1)
+    pause 3
+    hide tutorial with Dissolve(1)
     window hide
 
     python:

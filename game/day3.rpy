@@ -30,6 +30,8 @@ label bedroom_day3:
         pause 2
         "Mocha seems excited too, I think he knows that something good happened"
         MC "Good boy!"
+        pause 2
+        "Well then, I should water the {color=#FDE992}plants{/color}, {color=#FDE992}feed Mocha{/color}, I recieved a {color=#FDE992}bouquet{/color} I should keep it healthy, tidy up my {color=#FDE992}stationary{/color}, I also decided to hang an old {color=#FDE992}picture{/color} in my office, and end the day by doing my work on my {color=#FDE992}laptop{/color}"
 
     else:
         if dogfed == 1:
@@ -113,7 +115,7 @@ label knife_obj3:
 label plant_obj3:
     $ modal_state = False
     window show Dissolve(0.2)
-    "The plants have seen better days, I should water it."
+    "The plants still seems healthy, should I water it?"
     menu:
         "Water it":
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
@@ -131,13 +133,14 @@ label plant_obj3:
 label boquet_obj3:
     $ modal_state = False
     window show Dissolve(0.2)
-    "Very beautiful flowers, water it?"
+    "I was given this by my co-workers because of my recent work got the best seller award"
+    "It's a very beautiful flowers, water it?"
     menu:
         "Yes":
             play sound watering_plants
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "I’ll get water the flowers."
+            "The flowers has a nice smell."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -158,15 +161,18 @@ label laptop_obj3:
             pause 3
             if work == 2:
                 $ work = 3
-                "Just 10 pages to go!"
+                "I'm done!"
+                "I just need to submit it."
+                ".{w=0.2}.{w=0.2}.{w=0.2} and done!"
+
             elif work == 1:
                 $ work = 2
-                "Just 25 pages to go!"
+                "Just 50 pages to go!"
             else:
                 $ work = 1
-                "Great, 50 pages to go!"
+                "Great, 100 pages to go!"
         "No":
-            "I'll do it tomorrow, the deadline is 3 more days anyway."
+            "I don't have any inspiration, I should take a break for today."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -177,15 +183,15 @@ label laptop_obj3:
 label stationery_obj3:
     $ modal_state = False
     window show Dissolve(0.2)
-    "Pencils, Pens, I never used it since I have this laptop, maybe I should put it away?"
+    "It's getting quite messy, maybe I should clean it?"
     menu:
-        "Yes":
+        "Clean it":
             play sound shaking_pens
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "Everything seems much organized!"
-        "No":
-            "I don't really need them anyway, it's probably fine."
+            "Everything is tidy and perfect."
+        "Don't clean it":
+            "I'll just put them away once I'm done ."
     window hide Dissolve(0.2)
     $ modal_state = True
     pause
@@ -196,8 +202,9 @@ label pigura_obj3:
     $ modal_state = False
     window show Dissolve(0.2)
     #day 3 good end only
-    "Ah yes, a picture of my me and my mom."
-    "I should visit her when I can."
+    "Ah yes, it's a picture of my me and my mom."
+    "I decided to hang it."
+    "I miss our old house, I'm feeling nostalgic."
     window hide Dissolve(0.2)
     $ modal_state = True
     pause
@@ -209,12 +216,10 @@ label tissue_obj3:
     #day 3+ bad end only
     "Maybe I should clean the {b}trash{/b}?"
     menu:
-        "Yes":
+        "{b}Yes{/b}":
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "It's all cleaned now."
-        "No":
-            "It's not that messy, I can let it be for now."
+            "{b}It{/b} looks clean enough."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -228,12 +233,10 @@ label tissuebox_obj3:
     #day 3+ bad end only
     "Maybe I should wipe the {b}blood{/b}?"
     menu:
-        "Yes":
+        "{b}Yes{/b}":
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "It's cleaned!"
-        "No":
-            "It's not that filthy anyway."
+            "{b}It{/b} doesn't wipe off..."
 
     window hide Dissolve(0.2)
     $ modal_state = True

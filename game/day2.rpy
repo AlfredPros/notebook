@@ -3,7 +3,8 @@ label bedroom_day2:
     #start in bedroom morning
     ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
     pause 2
-
+    "I guess I'm awake now."
+    "Well then, I should water the {color=#FDE992}plants{/color}, {color=#FDE992}feed Mocha{/color}, maybe read one of my favorite {color=#FDE992}books{/color} to clear my mind, tidy up my {color=#FDE992}stationary{/color}, and do my work on my {color=#FDE992}laptop{/color}"
     window hide
     python:
         pos = renpy.get_mouse_pos()
@@ -120,7 +121,7 @@ label laptop_obj2:
 label stationery_obj2:
     $ modal_state = False
     window show Dissolve(0.2)
-    "Pencils, Pens, I never used it since I have this laptop, maybe I should put it away?"
+    "I've finished signed the books, maybe I should put it away?"
     menu:
         "Yes":
             $ point += 1
@@ -130,7 +131,7 @@ label stationery_obj2:
             "Everything seems much organized!"
         "No":
             $ point -= 1
-            "I don't really need them anyway, it's probably fine."
+            "I know where they're at, it's probably fine."
     window hide Dissolve(0.2)
     $ modal_state = True
     pause

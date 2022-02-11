@@ -6,6 +6,7 @@ label bedroom_day5:
     if goodend == 1:
         $ dogfed = 0
         "I woke up fresh and ready for the day!"
+        "Well then, I should water the {color=#FDE992}bouquet{/color}, {color=#FDE992}feed Mocha{/color}, I can use some {color=#FDE992}coffee{/color}, clean the {color=#FDE992}bookshelf{/color}, and do my work on my {color=#FDE992}laptop{/color}"
     else:
         "I woke up, for some reason my pillow feels a bit damp."
         "Ew, did I drool again?"
@@ -25,7 +26,7 @@ label bedroom_day5:
 label dogfeeder_obj5:
     $ modal_state = False
     if goodend == 1:
-        "I should feed Mocha."
+        "Mocha seems happy, I should feed him well."
         menu:
             "Feed him":
                 $ dogfed += 1
@@ -37,11 +38,11 @@ label dogfeeder_obj5:
                 play sound dog_barking
                 ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
                 pause 3
-                "He seems to enjoy it."
+                "He loved it!"
     else:
         "I should feed {b}him{/b}."
         menu:
-            "Yes":
+            "{b}Yes{/b}":
                 $ dogfed += 1
                 play sound dog_food
                 ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
@@ -56,15 +57,15 @@ label dogfeeder_obj5:
 label plant_obj5:
     $ modal_state = False
     window show Dissolve(0.2)
-    "The plants have seen better days, I should water it."
+    "The plants is withered."
     menu:
         "Water it.":
             play sound watering_plants
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "I wonder if the plant will survive."
+            "Why am I doing this?"
         "Don't water it.":
-            "I don't think it's saveable at this point."
+            "It's beyond saving, I can just replace it."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -75,15 +76,13 @@ label plant_obj5:
 label boquet_obj5:
     $ modal_state = False
     window show Dissolve(0.2)
-    "Huh, it's starting to wit, maybe some more water?"
+    "The flowers seems to bloom happily, water it?"
     menu:
         "Yes":
             play sound watering_plants
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "I’ll get water for the poor flowers."
-        "No":
-            "I can't be bothered with it."
+            "There, there, enjoy the fresh water."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -95,13 +94,16 @@ label coffee_obj5:
     $ modal_state = False
     window show Dissolve(0.2)
 
-    "A morning warm cup of coffee would be nice."
+    "I think I can use a bit of coffee for today."
     menu:
-        "Drink Coffee":
+        "Drink coffee":
             play sound coffee_machine
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "Bottoms up!"
+            "It's lovely!"
+            "I shouldn't drink this often though."
+        "Don't drink coffee":
+            "I think I'll pass, I can find other way to refresh myself."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -112,7 +114,7 @@ label coffee_obj5:
 label knife_obj5:
     $ modal_state = False
     window show Dissolve(0.2)
-    "I should clean it."
+    "I should clean {b}it{/b}."
     menu:
         "{b}Yes{/b}":
             play sound water_sink
@@ -136,22 +138,20 @@ label laptop_obj5:
             play sound laptop_start
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            if work == 3:
-                $ work = 4
+            if work == 2:
+                $ work = 3
                 "I'm done!"
                 "I just need to submit it."
                 ".{w=0.2}.{w=0.2}.{w=0.2} and done!"
-            elif work == 2:
-                $ work = 3
-                "Just 10 pages to go!"
+
             elif work == 1:
                 $ work = 2
-                "Just 25 pages to go!"
+                "Just 50 pages to go!"
             else:
                 $ work = 1
-                "Great, 50 pages to go!"
+                "Great, 100 pages to go!"
         "No":
-            "whatever, the deadline is in 2 days anyway."
+            "I can't be bothered, I'll do it before I sleep."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -162,15 +162,15 @@ label laptop_obj5:
 label bookshelf_obj5:
     $ modal_state = False
     window show Dissolve(0.2)
-    "There’s a lot of book here... maybe I should sort it."
+    "It doesn't seems to be too messy, maybe I can just lightly dusted it?"
     menu:
-        "Yes":
+        "Clean it":
             play sound tidy_the_books
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
             "Everything seems much organized!"
-        "No":
-            "I think the book is as organized as it should be."
+        "Don't clean it":
+            "I think it's fine, It's just a little dust."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -183,7 +183,7 @@ label pigura_obj5:
     window show Dissolve(0.2)
     #day 3 good end only
     "A picture of my me and my mom."
-    "I should give her a call when I can."
+    "I really missed her, maybe I should give her a call time to time."
     window hide Dissolve(0.2)
     $ modal_state = True
     pause
@@ -193,14 +193,13 @@ label tissuebox_obj5:
     $ modal_state = False
     window show Dissolve(0.2)
     #day 3+ bad end only
-    "I should clean the {b}trash{/b}?"
+    "I feel my face a little damp."
+    "I should clean my {b}tears{/b}?"
     menu:
-        "Yes":
+        "{b}Yes{/b}":
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "It's all cleaned now."
-        "No":
-            "It's not that messy, I can let it be for now."
+            "I still felt the tears constatly dripping off my face."
 
     window hide Dissolve(0.2)
     $ modal_state = True
