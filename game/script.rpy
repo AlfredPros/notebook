@@ -31,6 +31,7 @@ default goodend = 0 #bruh
 default work = 0
 default dogdie = 0
 default sleep1 = 0
+default doggy = 0
 
 label splashscreen:
     scene black

@@ -41,17 +41,17 @@ label coffee_obj1:
     $ modal_state = False
     window show Dissolve(0.2)
 
-    "A morning warm cup of Joe seems nice, it would make my anxiety worse though... Should I make coffee?"
+    "It's morning, should I make a coffee?"
     menu:
         "Yes":
             $ point -= 1
             play sound coffee_machine
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "Bottoms up!"
+            "I need some energy right now, I might have trouble sleeping later though."
         "No":
             $ point += 1
-            "No, I shouldn't. Maybe I can refresh myself some other way."
+            "No, I need to keep a healthy lifestyle. Wait why did I listen to that doctor?"
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -61,18 +61,19 @@ label coffee_obj1:
 
 label dogfeeder_obj1:
     $ modal_state = False
-    "Mocha's feeder seems empty, maybe it's a good idea to refill it."
+    "Mocha it's time to spoil you."
     menu:
         "Yes":
-            $ point += 1
+            $ point += 3
             $ dogfed += 1
+            $ doggy = 1
             play sound dog_food
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "There, there, good boy!"
+            "Come here mocha, it's time to eat!"
         "No":
-            $ point -= 1
-            "I think it’s fine, I kinda overfed him last night."
+            $ point -= 3
+            "I don't think I should, he's getting chubby, I kinda overfed him last night."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -83,17 +84,17 @@ label dogfeeder_obj1:
 label sink_obj1:
     $ modal_state = False
     window show Dissolve(0.2)
-    "The dish is going to keep piling up, maybe I should clean it?"
+    "There's leftover food staining the plates, though it's not too bad. Should I clean it anyway?"
     menu:
         "Yes":
             $ point += 1
             play sound water_sink
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "All clean!"
+            "I don't like waiting for tomorrw, I should do it now so I can relax tomorrow."
         "No":
             $ point -= 1
-            "I'll do it tomorrow."
+            "I'll do it tomorrow, it's not that dirty right now."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -106,17 +107,18 @@ label sink_obj1:
 label bookshelf_obj1:
     $ modal_state = False
     window show Dissolve(0.2)
-    "There’s a lot of book here... maybe I should sort it."
+    "Where's my favorite book? Oh, my bookshelf is messy, it's unpleasant to the eyes."
+    "Maybe I should re-arrange it better?"
     menu:
         "Yes":
             $ point += 1
             play sound tidy_the_books
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "Everything seems much organized!"
+            "Everything seems much organized, I should remind myself not to make a mess again."
         "No":
             $ point -= 1
-            "I think the book is as organized as it should be."
+            "Oh, there it is, I only needed it, I can clean the mess later."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -130,17 +132,17 @@ label laptop_obj1:
     "Maybe I should continue my work?"
     menu:
         "Yes":
-            $ point += 1
+            $ point += 2
             $ work = 1
             play sound laptop_start
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "Great, 50 pages to go!"
+            "Great, 100 pages to go!"
             if sleep1 == 1:
                 "Huh, a new email?"
                 "It's from... The editor... My book could be bestseller? What a joke."
         "No":
-            $ point -= 1
+            $ point -= 2
             "Whatever, the deadline is 5 more days anyway"
 
     window hide Dissolve(0.2)
@@ -172,6 +174,8 @@ label notebook_obj1:
         pause
     else:
         "Let's see what I've done today..."  # if all items have been interacted
+        pause 1
+        "I suppose I should sleep for the day."
         window hide Dissolve(0.2)
         $ modal_state = True
 

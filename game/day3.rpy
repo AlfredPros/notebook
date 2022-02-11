@@ -70,23 +70,19 @@ label bedroom_day3:
 label dogfeeder_obj3:
     $ modal_state = False
     if goodend == 1:
-        "Mocha's bowl's empty, I should feed him."
+        "Mocha's new package of food is here, I should feed him."
         menu:
             "Feed him":
                 $ dogfed += 1
                 play sound dog_food
                 ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
                 pause 3
-                "Mocha, It's time to chow down."
-            "Don't feed him":
-                play sound dog_food
-                ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
-                pause 3
-                "I'll give him the more expensive food."
+                "I pour a bit more than usual, Mocha is a growing boy after all."
+
     else:
-        "Mocha's bowl is empty, I should feed him."
+        "Mocha's new package of food is here, I should feed him."
         menu:
-            "Yes":
+            "{b}Yes{/b}":
                 $ dogfed += 1
                 play sound dog_food
                 ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"

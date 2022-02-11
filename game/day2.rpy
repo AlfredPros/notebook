@@ -40,17 +40,26 @@ label book_obj2:
 
 label dogfeeder_obj2:
     $ modal_state = False
-    "Huh, it’s empty, Mocha must be starving."
+    if doggy == 1:
+        $ doggy = 0
+        play sound dog_barking
+        pause 0.5
+        play sound dog_barking
+        MC "Mocha, stop running around, come over here!"
+    else:
+        MC "Mocha, it seems your body is getting thinner."
+
+    "He seemed hungry, I should feed him."
     menu:
-        "Fill it":
-            $ point += 1
+        "Feed Mocha":
+            $ point += 3
             $ dogfed += 1
             play sound dog_food
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
             "I should feed Mocha, he’s still growing after all."
-        "Don't fill it":
-            $ point -= 1
+        "Don't feed Mocha":
+            $ point -= 3
             "I don't want to overfed mocha, he should be fine."
 
     window hide Dissolve(0.2)
@@ -62,17 +71,17 @@ label dogfeeder_obj2:
 label plant_obj2:
     $ modal_state = False
     window show Dissolve(0.2)
-    "The plants have seen better days, I should water it."
+    "The house plants seems to be healthy, maybe I should water it?"
     menu:
         "Water it.":
             $ point += 1
             play sound watering_plants
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
-            "I wonder if the plant will survive."
+            "Grow my little cutie."
         "Don't water it.":
             $ point -= 1
-            "I don't think it's saveable at this point."
+            "The soil seems damp enough, I shouldn't overfill it."
 
     window hide Dissolve(0.2)
     $ modal_state = True
@@ -85,24 +94,22 @@ label plant_obj2:
 label laptop_obj2:
     $ modal_state = False
     window show Dissolve(0.2)
-    "Maybe I should continue my work?"
+    "Deadline is getting closer, maybe I should do my work?"
     menu:
         "Yes":
-            $ point += 1
+            $ point += 2
             play sound laptop_start
             ".{w=0.2}.{w=0.2}.{w=0.2}{nw}"
             pause 3
             if work == 1:
                 $ work = 2
-                "Just 25 pages to go!"
+                "Just 50 pages to go!"
             else:
                 $ work = 1
-                "Great, 50 pages to go!"
-                "Huh, a new email?"
-                "It's from... The editor... My book could be bestseller? What a joke."
+                "Great, 100 pages to go!"
         "No":
-            $ point -= 1
-            "I'll do it later, the deadline is 4 more days anyway"
+            $ point -= 2
+            "Forget it, I can't be bothered with it right now."
 
     window hide Dissolve(0.2)
     $ modal_state = True
